@@ -199,6 +199,22 @@ button:disabled {
     min-height: 100vh;
 }
 
+.hero {
+    display: block;
+    max-width: 100%;
+    height: 60vh;
+    background-image: url(../Resources/Swift.png);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: auto;
+}
+
+.before-scroll {
+    padding-top: 80px;
+    padding-inline: 32px;
+    border-bottom: 0.02rem solid #4D4D4E;
+}
+
 /* ==========================================================================
    Accessibility
    ========================================================================== */
@@ -213,8 +229,8 @@ button:disabled {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-color: #0b1220;
-        color: #e5e7eb;
+        background-color: #09090a;
+        color: #ffffff;
     }
 
     a {
