@@ -1,6 +1,8 @@
 :root {
+    /* opacity of the hero section */
+    --hero-opacity: 0.2;
     /* light mode */
-    --glass-bg: rgba(240, 104, 31, 0.08);
+    --glass-bg: rgba(250, 114, 41, 0.08);
     /* #F0681F */
     --glass-border: rgba(240, 104, 31, 0.15);
     /* select text color */
@@ -237,6 +239,7 @@ button:disabled {
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: auto;
+    opacity: var(--hero-opacity);
 }
 
 .before-scroll {
@@ -328,6 +331,8 @@ button:disabled {
 
 @media (prefers-color-scheme: dark) {
     :root {
+        /* opacity of the hero section */
+        --hero-opacity: 1;
         --glass-bg: rgba(203, 109, 58, 0.18);
         /* #CB6D3A */
         --glass-border: rgba(203, 109, 58, 0.35);
