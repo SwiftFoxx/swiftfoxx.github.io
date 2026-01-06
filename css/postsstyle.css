@@ -26,9 +26,9 @@
 }
 
 .post-card h3 {
-    font-family: SF Mono, Menlo, Consolas, Courier, monospace;
+    font-family: 'MD IO';
     font-size: 2rem;
-    font-weight: bolder;
+    font-weight: 700;
     color: var(--secondary);
 }
 
@@ -40,16 +40,16 @@
 }
 
 .date-p {
-    font-family: monospace;
+    font-family: 'MD IO';
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--tertiary);
 }
 
 .date-span {
-    font-family: monospace;
+    font-family: 'MD IO';
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--tertiary);
 }
 

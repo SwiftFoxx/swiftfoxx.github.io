@@ -1,3 +1,36 @@
+/* ==========================================================================
+    Font face
+   ========================================================================== */
+
+@font-face {
+    font-family: 'MD IO';
+    src: url(../Resources/Fonts/MDIO-Regular.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MD IO';
+    src: url(../Resources/Fonts/MDIO-Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'MD IO';
+    src: url(../Resources/Fonts/MDIO-Black.ttf) format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ==========================================================================
+    Root
+   ========================================================================== */
 :root {
     /* opacity of the hero section */
     --hero-opacity: 0.2;
@@ -206,7 +239,7 @@ button:disabled {
     align-items: center;
     width: 100%;
     padding: 0.75rem 1rem;
-    font-family: SF Mono, Menlo, Consolas, Courier, monospace;
+    font-family: 'MD IO';
     font-size: 0.8rem;
     font-weight: 500;
 }
