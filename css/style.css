@@ -109,20 +109,6 @@ small {
     color: #6b7280;
 }
 
-code,
-pre {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
-        Consolas, "Liberation Mono", monospace;
-}
-
-pre {
-    padding: 1rem;
-    overflow-x: auto;
-    background: #0f172a;
-    color: #e5e7eb;
-    border-radius: 8px;
-}
-
 /* ==========================================================================
    Links
    ========================================================================== */

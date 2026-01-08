@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn practical ways to organize files in Xcode to improve productivity, readability, and scalability in Swift and SwiftUI projects.">
-    <meta name="keywords" content="Swift, SwiftUI, Swift blog, iOS, macOS, watchOS, visionOS, Apple development, Swift tutorials">
-    <meta name="author" content="SwiftFoxx">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description"
+            content="Learn practical ways to organize files in Xcode to improve productivity, readability, and scalability in Swift and SwiftUI projects.">
+        <meta name="keywords"
+            content="Swift, SwiftUI, Swift blog, iOS, macOS, watchOS, visionOS, Apple development, Swift tutorials">
+        <meta name="author" content="SwiftFoxx">
 
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="All about creating a project with Xcode">
-    <meta property="og:description" content="All about creating a project with Xcode.">
-    <meta property="og:url" content="https://swiftfoxx.github.io/posts/create-new-project-with-xcode.html">
-    <meta property="og:image" content="https://swiftfoxx.github.io/assets/og/everyday-swiftui.png">
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="All about creating a project with Xcode">
+        <meta property="og:description" content="All about creating a project with Xcode.">
+        <meta property="og:url" content="https://swiftfoxx.github.io/posts/create-new-project-with-xcode.html">
+        <meta property="og:image" content="https://swiftfoxx.github.io/assets/og/everyday-swiftui.png">
 
-    <meta http-equiv="Content-Security-Policy" content="
+        <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self';
         img-src 'self' https://swiftfoxx.github.io;
         style-src 'self';
       ">
 
-    <title>Organize Files in Xcode to Boost Productivity</title>
-    <link rel="icon" ...>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/eachpost.css">
+        <title>Organize Files in Xcode to Boost Productivity</title>
+        <link rel="icon" ...>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/eachpost.css">
 
-    <script src="../js/nav-scroll.js" defer></script>
-    <script type="application/ld+json">
+        <script src="../js/nav-scroll.js" defer></script>
+        <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -44,9 +48,66 @@
         }
     }
 </script>
+    </head>
 </head>
-</head>
+
 <body>
-    <p>Organize Your Files To Boost Productivity</p>
+    <nav class="navigation">
+        <div class="menu-left">
+            <a href="../index.html">swiftfoxx /</a>
+        </div>
+        <div class="menu-right">
+            <a href="">portfolio</a>
+            <a href="">contact</a>
+            <div class="glass-search">
+                <input type="search" placeholder="search…" />
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <h1>Organize Your Files To Boost Productivity</h1>
+        <p>
+            Organizing your files in a specific structure is important not only because it <i>"looks"</i> good, but also
+            because it can speed up your development, improve how you code, and even decrease build and compile time.
+        </p>
+        <p>
+            It's debatable which one is the best structure for files and folders that never seems to reach any
+            conclusion. But it's imparative to arrange those things in ways that seems beneficial for the project's
+            requirements and the architecture that's being maintained.
+        </p>
+        <p>
+            Let's explore <b>how to organize files</b>, <b>why each structure exists</b>, and <b>when to use which
+                architecture</b>—with concrete, and real-world examples.
+        </p>
+        <!-- Intro -->
+        <h2>Intro to File Organization</h2>
+        <p>
+            Intro
+        </p>
+        <!-- Why File Organization Matters More Than You Think -->
+        <h2>Why File Organization Matters More Than You Think</h2>
+        <p>
+            In Swift projects, file organization directly affects <i>navigation speed in Xcode</i>, <i>architectural
+                discipline</i>, <i>mental context switching</i>, <i>merge conflicts</i>, <i>compile-time clarity</i>.
+            <br>
+            While a good structure mirrors how you think about the app, enforces boundaries naturally, grows linearly
+            with complexity, a bad structure encourages massive files, hides dependencies, couples unrelated features,
+            makes refactors painful.
+        </p>
+        <!-- The Golden Rule (Before Any Architecture) -->
+        <h2>The Golden Rule (Before Any Architecture)</h2>
+        <p class="quote">
+            Files should be grouped by why they exist, not what they are.
+        </p>
+        <p>
+            <b>Bad</b>
+        </p>
+        <p class="code">
+            Views/
+            ViewModels/
+            Models/
+        </p>
+    </div>
 </body>
+
 </html>

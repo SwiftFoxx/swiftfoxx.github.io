@@ -101,16 +101,15 @@ figcaption {
 }
 
 .code {
-    width: 100%;
-    min-height: 50px;
+    margin: 0;
+    padding: 16px;
     border-radius: 18px;
     background-color: ghostwhite;
     font-family: 'MD IO';
     font-size: small;
     font-weight: 500;
-    align-content: center;
-    padding: 16px;
     color: #626265;
+    overflow-x: auto;
 }
 
 .row {
