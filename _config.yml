@@ -12,6 +12,12 @@ highlighter: rouge
 # Permalinks (clean URLs, no dates)
 permalink: /:title/
 
+# Collections
+collections:
+  how_tos:
+    output: true
+    permalink: /how-tos/:name/
+
 # Excerpts (matches previous posts.json behavior)
 excerpt_separator: "<!-- more -->"
 
