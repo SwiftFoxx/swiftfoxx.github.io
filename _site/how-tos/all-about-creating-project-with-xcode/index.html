@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All about creating a project with Xcode — SwiftFoxx</title>
+
+    <meta name="description" content="All about creating a project with Xcode.">
+    <meta name="keywords" content="">
+    <meta name="author" content="SwiftFoxx">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="All about creating a project with Xcode">
+    <meta property="og:description" content="All about creating a project with Xcode.">
+    <meta property="og:url" content="http://localhost:4000/how-tos/all-about-creating-project-with-xcode/">
+    <meta property="og:image" content="">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/eachpost.css">
+    <link rel="stylesheet" href="/css/codehighlight.css">
+
+    <script src="/js/nav-scroll.js" defer></script>
+    <script src="/js/code-lang-detect.js"></script>
+</head>
+
+<body>
+    <nav class="navigation">
+    <div class="menu-left">
+        <a href="/">swiftfoxx /</a>
+    </div>
+    <div class="menu-right">
+        <a href="">portfolio</a>
+        <a href="">contact</a>
+        <div class="glass-search">
+            <input type="search" placeholder="search…" />
+        </div>
+    </div>
+</nav>
+    <div class="wrapper">
+        <h1 id="all-about-creating-a-project-with-xcode">All About Creating a Project With Xcode</h1>
+<!-- No way to style plain text, i.e. <p> in md -->
+<p>Jan 05, 2026 <span class="hashtag">xcode</span></p>
+
+<p>The article walks through every single step involved in creating a new project with Xcode, explains why each option exists, and what choices actually matter in real-world development.</p>
+
+<p>Open Xcode and you see this:</p>
+
+<figure>
+    <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-welcome-window.png" alt="Xcode Welcome Screen" />
+    <figcaption>Xcode Welcome Screen</figcaption>
+</figure>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Xcode is Apple’s <strong>official IDE</strong> for building software across Apple platforms <a href="https://developer.apple.com/xcode/" class="inline-link">Apple</a></p>
+
+<p>Apple says</p>
+
+<blockquote class="quote">
+  <p>Xcode offers the tools you need to develop, test, and distribute apps for Apple platforms, including predictive code completion, generative intelligence powered by the best coding models, advanced profiling and debugging tools, and simulators for Apple devices.</p>
+</blockquote>
+
+<h2 id="important-to-know">Important to Know</h2>
+
+<!-- Summary -->
+<h3 class="empty1" id="summary">Summary</h3>
+<ul>
+  <li><strong>Languages:</strong> Swift, Objective-C</li>
+  <li><strong>Other Languages:</strong> C/C++, Metal</li>
+  <li><strong>Frameworks:</strong> SwiftUI, UIKit, AppKit, Foundation, Combine, Core Data &amp; many more</li>
+  <li><strong>Platforms:</strong> iOS, macOS, watchOS, tvOS, visionOS</li>
+</ul>
+
+<h3 class="empty1" id="prerequisites">Prerequisites</h3>
+
+<p>Before starting make sure you have</p>
+
+<ul>
+  <li><strong>Mac with a recent macOS version</strong> that supports the latest Xcode.</li>
+  <li><strong>Xcode</strong> installed from AppStore or Apple. <a href="https://apps.apple.com/in/app/xcode/id497799835?mt=12Xcode" class="inline-link">1</a> <a href="https://developer.apple.com/download/applications/" class="inline-link">2</a></li>
+  <li><strong>Apple Developer Account</strong> that you can add in Xcode for <em>code signing</em></li>
+  <li><strong>For Windows</strong>, use a remote Mac, a cloud Mac service, or dual boot into macOS, because Xcode runs only on macOS.</li>
+</ul>
+
+<h2 id="starting-a-new-xcode-project">Starting A New Xcode Project</h2>
+
+<p>When you open Xcode, you’ll see the <strong>Welcome Window</strong>.</p>
+
+<p>As you can see in the figure, there are 3 options to choose from:</p>
+<ul>
+  <li>Create New Project…</li>
+  <li>Clone Git Repository…</li>
+  <li>Open Existing Project…</li>
+</ul>
+
+<p>Let’s look at each option and what it does</p>
+
+<p><strong>Create New Project</strong> starts a new project from scratch. Xcode just creates basic files to get you going and does everything else, such as linking, and putting values to <strong>plist</strong> files. You can run this project, and you’ll see a scene with a <strong>Globe</strong> <img class="inline-image" src="../Resources/svg/globe.svg" alt="globe svg" width="18px" height="18px" /> and <strong>Hello World!</strong></p>
+
+<p><strong>Clone Git Repository</strong> asks for a repository link. If you have a project already pushed to any git services, you’ll be able to download that and open the <code class="language-plaintext inline-code highlighter-rouge">xcodeproj</code> or <code class="language-plaintext inline-code highlighter-rouge">xcworkspace</code> file. If Xcode fails to open the project for some reason, find the project file with the extensions mentioned and open it.</p>
+
+<p><strong>Open Existing Project</strong> enables you to open any local project either downloaded from git or not. Although, recently opened projects will be listed in the right panel.</p>
+
+<h2 class="empty1" id="platforms-and-templates">Platforms and Templates</h2>
+
+<p><strong>Choosing a platform</strong> is what decides which devices your app will be deployed to, or in simple words, which devices would be able to download and run your app.</p>
+
+<p class="empty1"><strong>Available Platforms</strong></p>
+
+<div class="two-col-grid">
+    <div><b>iOS</b></div>
+    <div>creates apps for iPhone and iPad apps</div>
+    <div><b>macOS</b></div>
+    <div>creates apps for MacBooks, Mac Minis etc., running macOS</div>
+    <div><b>watchOS</b></div>
+    <div>creates apps for Apple Watch</div>
+    <div><b>tvOS</b></div>
+    <div>creates apps for Apple TV</div>
+    <div><b>visionOS</b></div>
+    <div>creates apps for Apple Vision Pro</div>
+    <div><b>Multuplatform</b></div>
+    <div>creates apps that is configured to be run on any number of platforms mentioned here</div>
+</div>
+
+<p class="empty1"><strong>Templates</strong> are what dictate which type of codebase this is. There are several templates for each platform. Some templates or types are shared by platforms and some are platform specific.</p>
+
+<p><strong>Most Used Templates</strong></p>
+
+<div class="two-col-grid">
+    <div><b>App</b></div>
+    <div>A standard application template for building user-facing apps across Apple platforms.</div>
+    <div><b>Gam</b>e</div>
+    <div>A template optimized for games using technologies like SpriteKit, SceneKit, or Metal.</div>
+    <div><b>App Playground</b></div>
+    <div>A lightweight, interactive environment for experimenting with app code and UI without a full project.
+    </div>
+    <div><b>Framework</b></div>
+    <div>A reusable code library meant to be shared across apps or distributed to other developers.</div>
+    <div><b>Command Line Tool</b></div>
+    <div>A template for building executable programs that run in the terminal, typically used for scripts, utilities, and backend-style logic without a UI.</div>
+</div>
+
+<!-- Important Configurations -->
+<h2 id="important-project-configurations">Important Project Configurations</h2>
+
+<p>Project configurations set some basic parameters. These settings are not absolute but crucial for the project to get started. You define the name of the project and languages to be used in this step along with if you need any storage, and, what type, should you choose to use it.</p>
+
+<p>Even though these settings are not set in stone but the name of the project which beconds the name of the <code class="language-plaintext inline-code highlighter-rouge">target</code> is rather difficult to change later.</p>
+
+<figure>
+    <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/project-configuration.png" alt="Configure Xcode project" />
+    <figcaption>Xcode project configuration</figcaption>
+</figure>
+
+<p>Let’s now get to know the fields one by one, shall we?</p>
+
+<div class="two-col-grid">
+    <div><b>Product Name</b></div>
+    <div>The display name of your app and the name used for the main target in Xcode.</div>
+    <div><b>Team</b></div>
+    <div>The Apple Developer account used for code signing, provisioning, and App Store distribution.</div>
+    <div><b>Organization Identifier</b></div>
+    <div>A reverse-DNS identifier (usually your domain) that namespaces your app.</div>
+    <div><b>Bundle Identifier</b></div>
+    <div>A globally unique identifier for your app, derived from the organization identifier and product name.</div>
+    <div><b>Interface</b></div>
+    <div>Determines whether the UI is built using SwiftUI, Storyboards, or XIBs.</div>
+    <div><b>Language</b></div>
+    <div>The primary programming language used for the project source code.</div>
+    <div><b>Testing System</b></div>
+    <div>Configures unit tests and UI tests used to validate app behavior.</div>
+    <div><b>Storage</b></div>
+    <div>Specifies whether the project includes persistence options like Core Data.</div>
+    <div><b>Host in CloudKit</b></div>
+    <div>Enables CloudKit support for syncing app data across devices.</div>
+</div>
+
+<p class="empty5">here is the introduction to creating projects with Xcode. We can’t wait to see what great apps you create. 🍀</p>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Magical Preview Canvas — SwiftFoxx</title>
+
+    <meta name="description" content="Previewing with Xcode">
+    <meta name="keywords" content="">
+    <meta name="author" content="SwiftFoxx">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The Magical Preview Canvas">
+    <meta property="og:description" content="Previewing with Xcode">
+    <meta property="og:url" content="http://localhost:4000/how-tos/previewing-with-xcode/">
+    <meta property="og:image" content="https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/eachpost.css">
+    <link rel="stylesheet" href="/css/codehighlight.css">
+
+    <script src="/js/nav-scroll.js" defer></script>
+    <script src="/js/code-lang-detect.js"></script>
+</head>
+
+<body>
+    <nav class="navigation">
+    <div class="menu-left">
+        <a href="/">swiftfoxx /</a>
+    </div>
+    <div class="menu-right">
+        <a href="">portfolio</a>
+        <a href="">contact</a>
+        <div class="glass-search">
+            <input type="search" placeholder="search…" />
+        </div>
+    </div>
+</nav>
+    <div class="wrapper">
+        <h1 id="the-magical-preview-canvas">The Magical ‘Preview’ Canvas</h1>
+
+<figure>
+    <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png" alt="Xcode Preview" />
+    <figcaption>Xcode Preview</figcaption>
+</figure>
+
+<p>SwiftUI’s Preview Canvas is fluid and intuitive.</p>
+
+<p>At first glance, it looks like a faster way to see the design without running the app. But it’s much more than that. It’s your canvas, and a silent critic who lets you know when there are problems in the code.</p>
+
+<h2 id="the-simplest-possible-preview">The Simplest Possible Preview</h2>
+
+<p>The <code class="language-plaintext inline-code highlighter-rouge">#Preview</code> macro, which removes a huge chunk of boilerplate code keeping the ability to dictate how the view appears.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview {</span>
+    <span class="kt">Text</span><span class="p">(</span><span class="s">"Hello, Preview"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This code will follow the implicitly calculated size for the preview — size that fits the content for macOS and the whole screen for iOS.</p>
+
+<p>In order to specify the size, you add a <code class="language-plaintext inline-code highlighter-rouge">frame</code> modifier.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview {</span>
+    <span class="kt">Text</span><span class="p">(</span><span class="s">"Hello, Preview"</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">40</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And in order to change the color scheme, you write:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview {</span>
+    <span class="kt">Text</span><span class="p">(</span><span class="s">"Hello, Preview"</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">preferredColorScheme</span><span class="p">(</span><span class="o">.</span><span class="n">dark</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Xcode’s Preview feature is real-time and interactive. For instance, a <code class="language-plaintext inline-code highlighter-rouge">Text</code> would update the string displayed on the canvas as you type in the Editor.</p>
+
+<h2 id="previewing-a-real-view-with-real-data">Previewing a Real View With Real Data</h2>
+
+<p>Let’s create a simple view with static data. Paste the following in your Editor and see what it renders:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">ProfileView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">username</span><span class="p">:</span> <span class="kt">String</span>
+
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">VStack</span><span class="p">(</span><span class="nv">spacing</span><span class="p">:</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"person.circle.fill"</span><span class="p">)</span>
+                <span class="o">.</span><span class="nf">font</span><span class="p">(</span><span class="o">.</span><span class="n">largeTitle</span><span class="p">)</span>
+            <span class="kt">Text</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"JohnDoe"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="variations--side-by-side">Variations — Side by Side</h2>
+
+<p>Previews become more useful when you show multiple scenarios at once. Scenarios might be color schemes, accessibility features and many more.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview("Short name") {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Alex"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview("Long name") {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Alexander Hamilton"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Xcode renders these together, making layout issues obvious while you develop.</p>
+
+<h2 id="device-sizes">Device Sizes</h2>
+
+<p>Many layout bugs only appear on specific screen sizes. Sometimes these bugs get more pronounced when we use <strong>size classes</strong>. One way to preview those use cases would be to declare the device directly in the <code class="language-plaintext inline-code highlighter-rouge">#Preview</code> macro.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview("Small device", device: .iPhoneSE) {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Swift"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview("Large device", device: .iPhone15ProMax) {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Swift"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Previewing on multiple devices together can minimize bugs that might get unnoticed during development.</p>
+
+<p>Light Mode, Dark Mode, and Color Assumptions</p>
+
+<p>Hardcoded colors and poor contrast are easy to miss before testing. We can test the colors alongside building the complete interface with logic:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview("Light Scheme") {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Swift"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview("Dark Scheme") {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Swift"</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">preferredColorScheme</span><span class="p">(</span><span class="o">.</span><span class="n">dark</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="accessibility-where-layouts-go-to-break">Accessibility: Where Layouts Go to Break</h2>
+
+<p>Variable text sizes are one of the fastest ways to expose fragile UI. SwiftUI provides ways to get that tested too. Take a look at the <code class="language-plaintext inline-code highlighter-rouge">environment</code> modifier.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview("Accessibility XXL") {</span>
+    <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Swift"</span><span class="p">)</span>
+        <span class="o">.</span><span class="nf">environment</span><span class="p">(\</span><span class="o">.</span><span class="n">sizeCategory</span><span class="p">,</span> <span class="o">.</span><span class="n">accessibilityExtraExtraExtraLarge</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 class="empty1" id="previews-are-about-state">Previews Are About State</h2>
+
+<p>Views do get complex and the complexity doesn’t always come from layout but from state. Here is an example of managing the state of a view and conditionally displaying View elements:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">LoadState</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">loading</span>
+    <span class="k">case</span> <span class="n">loaded</span>
+    <span class="k">case</span> <span class="n">error</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">ContentView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">state</span><span class="p">:</span> <span class="kt">LoadState</span>
+
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">state</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">loading</span><span class="p">:</span>
+            <span class="kt">ProgressView</span><span class="p">()</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">loaded</span><span class="p">:</span>
+            <span class="kt">Text</span><span class="p">(</span><span class="s">"Content Loaded"</span><span class="p">)</span>
+        <span class="k">case</span> <span class="o">.</span><span class="nv">error</span><span class="p">:</span>
+            <span class="kt">Text</span><span class="p">(</span><span class="s">"Something went wrong"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>These states can be based on other logics, such as, networking. But they can be viewed separately nevertheless.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview("Loading") {</span>
+    <span class="kt">ContentView</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="o">.</span><span class="n">loading</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview("Loaded") {</span>
+    <span class="kt">ContentView</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="o">.</span><span class="n">loaded</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview("Error") {</span>
+    <span class="kt">ContentView</span><span class="p">(</span><span class="nv">state</span><span class="p">:</span> <span class="o">.</span><span class="n">error</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="navigation">Navigation</h2>
+
+<p>No app is built without navigation. In order for a complete experience we need to go back and forth between scenes of an app. For instance, the <strong>iMessage</strong> app shows the list of messages in the inbox. We navigate to the chat scene by tapping on a message.</p>
+
+<p>But the previews are isolated views that are drawn on the canvas. Therefore, a view can not access the Navigation controller from another view. Hence, we need to wrap the previewing view in a <code class="language-plaintext inline-code highlighter-rouge">NavigationStack</code>.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview {</span>
+    <span class="kt">NavigationStack</span> <span class="p">{</span>
+        <span class="kt">ProfileView</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="s">"Swift"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 class="empty1" id="when-previews-feel-slow-pay-attention">When Previews Feel Slow, Pay Attention</h2>
+
+<p>Sluggish previews are usually a signal, not a tooling problem. They often indicate:</p>
+<ul>
+  <li>oversized views</li>
+  <li>heavy work in body</li>
+  <li>implicit global dependencies</li>
+  <li>launch-time complications</li>
+</ul>
+
+<p>Well-designed views preview quickly.</p>
+
+<hr />
+
+<h3 class="empty1" id="closing-thought">Closing Thought</h3>
+
+<p>If you treat the Preview Canvas as a playground instead of a mirror, it becomes one of the most valuable tools in your workflow.</p>
+
+    </div>
+
+</body>
+
+</html>
