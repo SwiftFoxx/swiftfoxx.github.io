@@ -1,0 +1,105 @@
+@import url(/css/style.css);
+
+:root {
+  --editor-foreground: hsl(0deg 0% 0%);
+  --editor-background: hsl(200, 21%, 95%);
+}
+
+/* Normalize Jekyll / Rouge code blocks */
+.highlight {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+
+  font-family: 'MD IO';
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.4;
+
+  background: var(--editor-background);
+  color: var(--editor-foreground);
+  border-radius: 18px;
+}
+
+/* ============================= */
+/* Syntax highlighting (Rouge)  */
+/* ============================= */
+
+/* Comment */
+.highlight .c {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Keyword */
+.highlight .k {
+  color: #38bdf8;
+}
+
+/* Keyword */
+.highlight .kd {
+  color: #9B2393;
+}
+
+/* Type */
+.highlight .kt {
+  color: #3900A0;
+}
+
+/* String */
+.highlight .s {
+  color: #fbbf24;
+}
+
+/* Name */
+.highlight .n {
+  color: #e5e7eb;
+}
+
+/* Operator */
+.highlight .o {
+  color: #f472b6;
+}
+
+/* Punctuation */
+.highlight .p {
+  color: #94a3b8;
+}
+
+/* Number */
+.highlight .m {
+  color: #a78bfa;
+}
+
+/* Function name */
+.highlight .nf {
+  color: #34d399;
+}
+
+/* Variable name */
+.highlight .nv {
+  color: #fda4af;
+}
+
+/* Attribute (HTML) */
+.highlight .na {
+  color: #fcd34d;
+}
+
+/* Tag (HTML) */
+.highlight .nt {
+  color: #60a5fa;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --editor-foreground: hsl(0, 0%, 100%);
+    --editor-background: hsl(223, 9%, 15%);
+  }
+}

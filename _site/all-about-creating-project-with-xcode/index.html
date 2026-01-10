@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All about creating a project with Xcode — SwiftFoxx</title>
+
+    <meta name="description" content="All about creating a project with Xcode.">
+    <meta name="keywords" content="">
+    <meta name="author" content="SwiftFoxx">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="All about creating a project with Xcode">
+    <meta property="og:description" content="All about creating a project with Xcode.">
+    <meta property="og:url" content="http://localhost:4000/all-about-creating-project-with-xcode/">
+    <meta property="og:image" content="">
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/eachpost.css">
+    <link rel="stylesheet" href="/css/codehighlight.css">
+
+    <script src="/js/nav-scroll.js" defer></script>
+</head>
+
+<body>
+    <nav class="navigation">
+    <div class="menu-left">
+        <a href="/">swiftfoxx /</a>
+    </div>
+    <div class="menu-right">
+        <a href="">portfolio</a>
+        <a href="">contact</a>
+        <div class="glass-search">
+            <input type="search" placeholder="search…" />
+        </div>
+    </div>
+</nav>
+    <div class="wrapper">
+        <h1 id="all-about-creating-a-project-with-xcode">All About Creating a Project With Xcode</h1>
+<!-- No way to style plain text, i.e. <p> in md -->
+<p>Jan 05, 2026 <span class="hashtag">xcode</span></p>
+
+<p>The article walks through every single step involved in creating a new project with Xcode, explains why each option exists, and what choices actually matter in real-world development.</p>
+
+<p>Open Xcode and you see this:</p>
+
+<figure>
+    <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-welcome-window.png" alt="Xcode Welcome Screen" />
+    <figcaption>Xcode Welcome Screen</figcaption>
+</figure>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Xcode is Apple’s <strong>official IDE</strong> for building software across Apple platforms <a href="https://developer.apple.com/xcode/" class="inline-link">Apple</a></p>
+
+<p>Apple says</p>
+
+<blockquote class="quote">
+  <p>Xcode offers the tools you need to develop, test, and distribute apps for Apple platforms, including predictive code completion, generative intelligence powered by the best coding models, advanced profiling and debugging tools, and simulators for Apple devices.</p>
+</blockquote>
+
+<h2 id="important-to-know">Important to Know</h2>
+
+<!-- Summary -->
+<h3 class="empty1" id="summary">Summary</h3>
+<ul>
+  <li><strong>Languages:</strong> Swift, Objective-C</li>
+  <li><strong>Other Languages:</strong> C/C++, Metal</li>
+  <li><strong>Frameworks:</strong> SwiftUI, UIKit, AppKit, Foundation, Combine, Core Data &amp; many more</li>
+  <li><strong>Platforms:</strong> iOS, macOS, watchOS, tvOS, visionOS</li>
+</ul>
+
+<h3 class="empty1" id="prerequisites">Prerequisites</h3>
+
+<p>Before starting make sure you have</p>
+
+<ul>
+  <li><strong>Mac with a recent macOS version</strong> that supports the latest Xcode.</li>
+  <li><strong>Xcode</strong> installed from AppStore or Apple. <a href="https://apps.apple.com/in/app/xcode/id497799835?mt=12Xcode" class="inline-link">1</a> <a href="https://developer.apple.com/download/applications/" class="inline-link">2</a></li>
+  <li><strong>Apple Developer Account</strong> that you can add in Xcode for <em>code signing</em></li>
+  <li><strong>For Windows</strong>, use a remote Mac, a cloud Mac service, or dual boot into macOS, because Xcode runs only on macOS.</li>
+</ul>
+
+<h2 id="starting-a-new-xcode-project">Starting A New Xcode Project</h2>
+
+<p>When you open Xcode, you’ll see the <strong>Welcome Window</strong>.</p>
+
+<p>As you can see in the figure, there are 3 options to choose from:</p>
+<ul>
+  <li>Create New Project…</li>
+  <li>Clone Git Repository…</li>
+  <li>Open Existing Project…</li>
+</ul>
+
+<p>Let’s look at each option and what it does</p>
+
+<p><strong>Create New Project</strong> starts a new project from scratch. Xcode just creates basic files to get you going and does everything else, such as linking, and putting values to <strong>plist</strong> files. You can run this project, and you’ll see a scene with a <strong>Globe</strong> <img class="inline-image" src="../Resources/svg/globe.svg" alt="globe svg" width="18px" height="18px" /> and <strong>Hello World!</strong></p>
+
+<p><strong>Clone Git Repository</strong> asks for a repository link. If you have a project already pushed to any git services, you’ll be able to download that and open the <code class="language-plaintext inline-code highlighter-rouge">xcodeproj</code> or <code class="language-plaintext inline-code highlighter-rouge">xcworkspace</code> file. If Xcode fails to open the project for some reason, find the project file with the extensions mentioned and open it.</p>
+
+<p><strong>Open Existing Project</strong> enables you to open any local project either downloaded from git or not. Although, recently opened projects will be listed in the right panel.</p>
+
+<h2 class="empty1" id="platforms-and-templates">Platforms and Templates</h2>
+
+    </div>
+
+</body>
+
+</html>

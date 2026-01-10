@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-10T14:15:00+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">SwiftFoxx</title><subtitle>Practical articles on building modern apps with Swift and SwiftUI</subtitle><entry><title type="html">Organize Files to Boost Productivity</title><link href="http://localhost:4000/organize_files_boost_productivity/" rel="alternate" type="text/html" title="Organize Files to Boost Productivity" /><published>2026-01-07T00:00:00+05:30</published><updated>2026-01-07T00:00:00+05:30</updated><id>http://localhost:4000/organize_files_boost_productivity</id><content type="html" xml:base="http://localhost:4000/organize_files_boost_productivity/"><![CDATA[<h1 id="organize-your-files-to-boost-productivity">Organize Your Files To Boost Productivity</h1>
+<!-- No way to style plain text, i.e. <p> in md -->
+<p>Jan 07, 2026 <span class="hashtag">projectStructure</span></p>
+
+<p class="empty1">Organizing your files in a specific structure is important not only because it “<em>looks</em>” good, but also because it can speed up your development, improve how you code, and even decrease build and compile time.</p>
+
+<p>It’s debatable which one is the best structure for files and folders that seems to reach no conclusions. But it is imperative to arrange those things in ways that seem beneficial for the project’s requirements and the architecture that’s being maintained.</p>
+
+<p>Let’s explore <strong>how to organize files</strong>, <strong>why each structure exists</strong>, and <strong>when to use which architecture</strong> — with concrete, and real-world examples.</p>
+
+<h2 id="why-file-organization-matters">Why File Organization Matters</h2>
+<p>In Swift projects, file organization directly affects <em>navigation speed in Xcode</em>, <em>architectural discipline</em>, <em>mental context switching</em>, <em>merge conflicts</em>, <em>compile-time clarity</em>.</p>
+
+<p>While a good structure mirrors how you think about the app, enforces boundaries naturally, grows linearly with complexity, a bad structure encourages massive files, hides dependencies, couples unrelated features, makes refactors painful.</p>
+
+<h2 id="the-golden-rule-before-any-architecture">The Golden Rule (Before Any Architecture)</h2>
+
+<p class="quote">Files should be grouped by why they exist, not what they are.</p>
+
+<p>A good example of that would be a structure as follows:</p>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Features
+├─Login/
+├─ Profile/
+├─ Settings/
+</code></pre></div></div>
+
+<p>Types are an implementation detail.
+Features are the product.</p>
+
+<h2 id="a-clean-swiftui-app-wo-an-architecture">A Clean SwiftUI App (W/O an Architecture)</h2>
+
+<p>An ideal structure for looking around or smaller projects, such as, a timer app that just starts and stops the timer on tap.</p>
+
+<p>This is the most basic structure of all — the foundation of the understanding of engineering a project. Even though, the understanding of structuring the code is rather important to compile the file structure itself. And therefore, it’s always advisable to start with the basic and keep building as you go.</p>
+
+<p>With a stronger understanding of the code’s components, the place for them would be determined during development.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MyApp/
+├─ App/
+│  └─ MyAppApp.swift
+│
+├─ Features/
+│  └─ Home/
+│     ├─ HomeView.swift
+│     └─ HomeViewModel.swift
+│
+├─ Shared/
+│  ├─ Components/
+│  ├─ Extensions/
+│  └─ Utilities/
+│
+├─ Resources/
+│  ├─ Assets.xcassets
+│  └─ Localizable.strings
+</code></pre></div></div>
+<p>This structure is <strong>clean</strong>, <strong>isolated</strong>, and <strong>decoupled</strong>.</p>
+
+<p>But scaling the app would create hundreds of files inside <code class="language-plaintext inline-code highlighter-rouge">Features</code> which would most certainly overwhelm the process of managing the project later.</p>
+
+<h2 id="feature-based-organization">Feature Based Organization</h2>
+<p>Most projects using SwiftUI as interface would benefit from this structure. But again, it may pose some challenges for scalable and complicated projects.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Features/
+├─ Login/
+│  ├─ LoginView.swift
+│  ├─ LoginViewModel.swift
+│  ├─ LoginService.swift
+│  └─ LoginModels.swift
+│
+├─ Profile/
+│  ├─ ProfileView.swift
+│  ├─ ProfileViewModel.swift
+│  └─ ProfileModels.swift
+</code></pre></div></div>
+<p>In this specific structure:</p>
+<ol>
+  <li>files referencing to the same (modular) feature are grouped together inside the same folder</li>
+  <li>modifying a feature would require very less effort and time</li>
+  <li>ownership is obvious rather than abstract</li>
+  <li>onboarding is faster</li>
+</ol>
+
+<p>Therefore, if you have nothing else to worry about for your project, incorporating this structure would help you work better.</p>
+
+<h2 id="mvvm-file-structure">MVVM File Structure</h2>
+<p><strong>MVVM works well with SwiftUI</strong> — it’s not just a statement, it’s a fact.</p>
+
+<p>This structure works so well with SwiftUI that you may be able to pull off any kind of project with minimal effort because <em>SwiftUI handles rendering</em>, <em>ViewModels manage state</em>, and <em>Models remain simple</em>.</p>
+
+<div class="language-text empty1 highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Features/
+├─ Feed/
+│ ├─ FeedView.swift
+│ ├─ FeedViewModel.swift
+│ ├─ FeedState.swift
+│ └─ FeedService.swift
+│
+├─ Settings/
+│  ├─ SettingsView.swift
+│  ├─ SettingsViewModel.swift
+│  ├─ SettingsState.swift
+│  └─ SettingsService.swift
+</code></pre></div></div>
+<p><strong>MVVM</strong> enforces using of ViewModels with Views for the interaction between the View and the Model.</p>
+
+<p>Referencing and manipulating the Model directly from the View is doable but strongly discouraged. Data manipulation and networking are designed to be done in lower priority qOS. The main thread is always allocated for View updates. And therefore working with Data and network in that thread do freeze the View.</p>
+
+<p>When a ViewModel sits between the Model and the View, it gets very straightforward to direct the heavy and memory-hungry code to run in threads other than the Main thread.</p>
+
+<p>MVVM also offers decoupling of features, service, and workers to keep it clean and easy to maintain. And if the structure is followed correctly, testing gets easier with mock services and mock ViewModels.</p>
+
+<h2 id="clean-architecture">Clean Architecture</h2>
+
+<p>For large and scalable projects where multiple teams work together to build features and ship the app, the <strong>Clean Architecture</strong> works wonders. This architecture is good for long-term maintenance too.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>App/
+Core/
+│
+├─ Domain/
+│  ├─ Entities/
+│  ├─ UseCases/
+│  └─ Repositories/
+│
+├─ Data/
+│  ├─ Network/
+│  ├─ Persistence/
+│  └─ RepositoryImpl/
+│
+├─ Presentation/
+│  └─ Features/
+│     └─ Feed/
+│        ├─ FeedView.swift
+│        ├─ FeedViewModel.swift
+│        └─ FeedMapper.swift
+</code></pre></div></div>
+
+<p>It may look like MVVM on the surface, but this is named “Clean” for a reason. The architecture granulates things to the point where dependency becomes intentional.</p>
+
+<p>In simple words, this architecture, <strong>enforces dependency direction</strong>, <strong>isolates business logic</strong>, <strong>makes testing trivial</strong>, <strong>supports multiple UIs</strong>.</p>
+
+<h2 id="modular-architecture--swift-packages">Modular Architecture — Swift Packages</h2>
+<p>For scalable SwiftUI apps, modules matter. And Modular Architecture separates the granulated areas even more.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>MyApp/
+├─ App/
+├─ Packages/
+│  ├─ DesignSystem/
+│  ├─ Networking/
+│  ├─ AuthFeature/
+│  └─ ProfileFeature/
+</code></pre></div></div>
+
+<p>The word that always comes to mind while working with Modular Architecture is <strong>isolation</strong>. Every module is isolated by design since one module does not have access to another. This way the all the different logics are put in their places that rarely mixes up. You can import and access any module wherever you want.</p>
+
+<p>This architecture offers <strong>compile-time isolation</strong>, <strong>faster builds</strong>, <strong>clearer ownership</strong>, and <strong>reusable features</strong>.</p>
+
+<p>Swift Packages are first-class citizens in SwiftUI projects.</p>
+
+<h2 id="extensions">Extensions</h2>
+
+<p>We may need to extend any class, struct, or protocol at any point of time for reducing complexity and repetition in our code. This is another measure to keep the logic clean and readable.</p>
+
+<p>An example of extension might look like this:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Array</span> <span class="p">{</span>
+   <span class="nf">subscript</span> <span class="p">(</span><span class="n">safe</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Element</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">index</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">self</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The point to bring it up in an article concerning file and folder structure is that all the extensions you create should never be written in the same file. This calls for huge files and delayed building.</p>
+
+<p>A good example of structuring your extensions is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Extensions/
+├─ View+Modifiers.swift
+├─ Color+Theme.swift
+└─ String+Validation.swift
+</code></pre></div></div>
+<h2 id="naming-conventions-they-matter">Naming Conventions (They Matter)</h2>
+
+<p>Small things to keep in mind:</p>
+<ul>
+  <li>One type per file</li>
+  <li>File name = primary type name</li>
+  <li>Avoid generic names (Manager, Helper, Util)</li>
+</ul>
+
+<h2 id="preview-friendly-organization">Preview-Friendly Organization</h2>
+
+<p>SwiftUI previews thrive when files are small.</p>
+
+<p><strong>Tips</strong></p>
+<ol>
+  <li>keep Views under ~200 lines</li>
+  <li>extract subviews early</li>
+  <li>colocate preview data</li>
+</ol>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LoginView+PreviewData.swift
+</code></pre></div></div>
+
+<hr />
+
+<p class="empty2_5">The architecture and file-folder structure are the things that matter more than the ability to code. <em>If you have to think about where a file goes, your structure isn’t clear enough</em>.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[How to structure Swift & SwiftUI projects for long-term maintainability.]]></summary></entry><entry><title type="html">All about creating a project with Xcode</title><link href="http://localhost:4000/all-about-creating-project-with-xcode/" rel="alternate" type="text/html" title="All about creating a project with Xcode" /><published>2026-01-05T00:00:00+05:30</published><updated>2026-01-05T00:00:00+05:30</updated><id>http://localhost:4000/all-about-creating-project-with-xcode</id><content type="html" xml:base="http://localhost:4000/all-about-creating-project-with-xcode/"><![CDATA[<h1 id="all-about-creating-a-project-with-xcode">All About Creating a Project With Xcode</h1>
+<!-- No way to style plain text, i.e. <p> in md -->
+<p>Jan 05, 2026 <span class="hashtag">xcode</span></p>
+
+<p>The article walks through every single step involved in creating a new project with Xcode, explains why each option exists, and what choices actually matter in real-world development.</p>
+
+<p>Open Xcode and you see this:</p>
+
+<figure>
+    <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-welcome-window.png" alt="Xcode Welcome Screen" />
+    <figcaption>Xcode Welcome Screen</figcaption>
+</figure>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Xcode is Apple’s <strong>official IDE</strong> for building software across Apple platforms <a href="https://developer.apple.com/xcode/" class="inline-link">Apple</a></p>
+
+<p>Apple says</p>
+
+<blockquote class="quote">
+  <p>Xcode offers the tools you need to develop, test, and distribute apps for Apple platforms, including predictive code completion, generative intelligence powered by the best coding models, advanced profiling and debugging tools, and simulators for Apple devices.</p>
+</blockquote>
+
+<h2 id="important-to-know">Important to Know</h2>
+
+<!-- Summary -->
+<h3 class="empty1" id="summary">Summary</h3>
+<ul>
+  <li><strong>Languages:</strong> Swift, Objective-C</li>
+  <li><strong>Other Languages:</strong> C/C++, Metal</li>
+  <li><strong>Frameworks:</strong> SwiftUI, UIKit, AppKit, Foundation, Combine, Core Data &amp; many more</li>
+  <li><strong>Platforms:</strong> iOS, macOS, watchOS, tvOS, visionOS</li>
+</ul>
+
+<h3 class="empty1" id="prerequisites">Prerequisites</h3>
+
+<p>Before starting make sure you have</p>
+
+<ul>
+  <li><strong>Mac with a recent macOS version</strong> that supports the latest Xcode.</li>
+  <li><strong>Xcode</strong> installed from AppStore or Apple. <a href="https://apps.apple.com/in/app/xcode/id497799835?mt=12Xcode" class="inline-link">1</a> <a href="https://developer.apple.com/download/applications/" class="inline-link">2</a></li>
+  <li><strong>Apple Developer Account</strong> that you can add in Xcode for <em>code signing</em></li>
+  <li><strong>For Windows</strong>, use a remote Mac, a cloud Mac service, or dual boot into macOS, because Xcode runs only on macOS.</li>
+</ul>
+
+<h2 id="starting-a-new-xcode-project">Starting A New Xcode Project</h2>
+
+<p>When you open Xcode, you’ll see the <strong>Welcome Window</strong>.</p>
+
+<p>As you can see in the figure, there are 3 options to choose from:</p>
+<ul>
+  <li>Create New Project…</li>
+  <li>Clone Git Repository…</li>
+  <li>Open Existing Project…</li>
+</ul>
+
+<p>Let’s look at each option and what it does</p>
+
+<p><strong>Create New Project</strong> starts a new project from scratch. Xcode just creates basic files to get you going and does everything else, such as linking, and putting values to <strong>plist</strong> files. You can run this project, and you’ll see a scene with a <strong>Globe</strong> <img class="inline-image" src="../Resources/svg/globe.svg" alt="globe svg" width="18px" height="18px" /> and <strong>Hello World!</strong></p>
+
+<p><strong>Clone Git Repository</strong> asks for a repository link. If you have a project already pushed to any git services, you’ll be able to download that and open the <code class="language-plaintext inline-code highlighter-rouge">xcodeproj</code> or <code class="language-plaintext inline-code highlighter-rouge">xcworkspace</code> file. If Xcode fails to open the project for some reason, find the project file with the extensions mentioned and open it.</p>
+
+<p><strong>Open Existing Project</strong> enables you to open any local project either downloaded from git or not. Although, recently opened projects will be listed in the right panel.</p>
+
+<h2 class="empty1" id="platforms-and-templates">Platforms and Templates</h2>]]></content><author><name></name></author><summary type="html"><![CDATA[All about creating a project with Xcode.]]></summary></entry></feed>
