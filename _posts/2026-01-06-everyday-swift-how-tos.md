@@ -1,12 +1,13 @@
 ---
 layout: post
-title: Everyday SwiftUI How-To's — SwiftFoxx
+title: Everyday SwiftUI How-To's
 description: A collection of practical, everyday SwiftUI how-tos covering common layout, styling, previews, and system behavior patterns used in real apps.
+date: Jan 05, 2026
 ---
 
 # Everyday SwiftUI How-To's
 
-<p>Jan 06, 2026 <span class="hashtag">General</span></p>
+<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">General</span></p>
 
 >The job of a developer or an engineer is not to write code. The job is to solve problems.
 {: .quote }
@@ -41,7 +42,7 @@ This collection serves as a foundation for everything that follows—simple, rep
         <h4>The magical 'Preview' canvas</h4>
         <p>Previewing is not a new technology – it's long been used with frontend development. Let's dive deeper on how to minimize running the app by using the previews.</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="/how-tos/code-reusability">
         <h4>How many ways are there to make a chunk of code reusable</h4>
         <p>In 2026, we can't engineer an app without reusability. It's scalable, customizable and saves a lot of time. But how many ways can we make something reusable?</p>
     </a>
