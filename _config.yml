@@ -32,6 +32,7 @@ defaults:
 # Plugins (GitHub Pages safe)
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 # Exclude from build
 exclude:

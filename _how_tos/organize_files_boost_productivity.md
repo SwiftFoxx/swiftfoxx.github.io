@@ -2,11 +2,12 @@
 layout: post
 title: Organize Files to Boost Productivity
 description: How to structure Swift & SwiftUI projects for long-term maintainability.
+date: Jan 07 2026
 ---
 
 # Organize Your Files To Boost Productivity
 <!-- No way to style plain text, i.e. <p> in md -->
-<p>Jan 07, 2026 <span class="hashtag">projectStructure</span></p>
+<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">projectStructure</span></p>
 
 {: .empty1 }
 

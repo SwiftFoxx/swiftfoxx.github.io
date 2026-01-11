@@ -3,9 +3,12 @@ layout: post
 title: The Magical Preview Canvas
 description: Previewing with Xcode
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png
+date: Jan 8, 2026
 ---
 
 # The Magical 'Preview' Canvas
+
+<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">Xcode</span></p>
 
 <figure>
     <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png" alt="Xcode Preview">

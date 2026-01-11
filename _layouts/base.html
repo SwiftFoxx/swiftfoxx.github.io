@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>{{ page.title }} — SwiftFoxx</title>
+  {% if page.title %}
+  <title>{{ page.title }} — {{ site.title }}</title>
+  {% else %}
+  <title>{{ site.title }}</title>
+  {% endif %}
 
-  <meta name="description" content="{{ page.description }}">
+  {% seo %}
+  
+  <!-- <meta name="description" content="{{ page.description }}">
   <meta name="keywords" content="{{ page.keywords }}">
   <meta name="author" content="SwiftFoxx">
 
@@ -14,7 +20,7 @@
   <meta property="og:title" content="{{ page.title }}">
   <meta property="og:description" content="{{ page.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.og_image }}">
+  <meta property="og:image" content="{{ site.og_image }}"> -->
 
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">

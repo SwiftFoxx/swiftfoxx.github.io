@@ -2,11 +2,12 @@
 layout: post
 title: All about creating a project with Xcode
 description: All about creating a project with Xcode.
+date: Jan 06, 2026
 ---
 
 # All About Creating a Project With Xcode
 <!-- No way to style plain text, i.e. <p> in md -->
-<p>Jan 05, 2026 <span class="hashtag">xcode</span></p>
+<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">xcode</span></p>
 
 The article walks through every single step involved in creating a new project with Xcode, explains why each option exists, and what choices actually matter in real-world development.
 
