@@ -42,7 +42,7 @@ This collection serves as a foundation for everything that follows—simple, rep
         <h4>The magical 'Preview' canvas</h4>
         <p>Previewing is not a new technology – it's long been used with frontend development. Let's dive deeper on how to minimize running the app by using the previews.</p>
     </a>
-    <a class="element" href="/how-tos/code-reusability">
+    <a class="element" href="/how-tos/code-reusability/">
         <h4>How many ways are there to make a chunk of code reusable</h4>
         <p>In 2026, we can't engineer an app without reusability. It's scalable, customizable and saves a lot of time. But how many ways can we make something reusable?</p>
     </a>
