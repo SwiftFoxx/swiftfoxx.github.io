@@ -50,23 +50,23 @@ This collection serves as a foundation for everything that follows—simple, rep
         <h4>Buttons, did you say?</h4>
         <p>Let's customize the buttons, shall we?<br>Almost no designer uses the default button styles that Apple gives us and it takes ages to figure out the whats and hows. Let's get into buttons and actions.</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="/how-tos/get-view-to-center/">
         <h4>Get any view to the center</h4>
         <p>Centering a view can be tricky depending on the layout.</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="/how-tos/divider-with-custom-spacing/">
         <h4>How to add a divider with custom spacing</h4>
         <p>Dividers are essential to lists and large views displaying multiple sections. But can we customize them?</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="#">
         <h4>How to use SF Symbols correctly</h4>
         <p>SF Symbols pack thousands of icons that apps generally need. They are customizable in more ways than one and it's vast. Let's explore some of those.</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="#">
         <h4>How to support Dark Mode properly</h4>
         <p>Color scheme is handled by the system by default. But how to make it change on demand?</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="#">
         <h4><span class="highlight">Section Finale!</span> Let's build a settings scene.</h4>
         <p>Let's end this section of the blog by building a Settings scene using default and reusable components.</p>
     </a>
