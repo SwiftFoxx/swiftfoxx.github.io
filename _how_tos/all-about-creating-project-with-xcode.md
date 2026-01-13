@@ -24,7 +24,7 @@ Xcode is Apple's **official IDE** for building software across Apple platforms [
 
 Apple says
 
-> Xcode offers the tools you need to develop, test, and distribute apps for Apple platforms, including predictive code completion, generative intelligence powered by the best coding models, advanced profiling and debugging tools, and simulators for Apple devices.
+Xcode offers the tools you need to develop, test, and distribute apps for Apple platforms, including predictive code completion, generative intelligence powered by the best coding models, advanced profiling and debugging tools, and simulators for Apple devices.
 {: .quote}
 
 ## Important to Know

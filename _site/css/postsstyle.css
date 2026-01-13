@@ -70,3 +70,9 @@
         --quaternary: rgba(255, 255, 255, 0.10);
     }
 }
+
+@media (width < 640px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
