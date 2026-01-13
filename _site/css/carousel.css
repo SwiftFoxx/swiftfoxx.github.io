@@ -140,6 +140,11 @@
             content: url(/Resources/svg/viewfinder-dark.svg);
         }
     }
+
+    @media (width < 640px) {
+        top: 0;
+        right: 0;
+    }
 }
 
 .carousel-overlay {

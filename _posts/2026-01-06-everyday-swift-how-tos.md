@@ -9,7 +9,7 @@ date: Jan 05, 2026
 
 <p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">General</span></p>
 
->The job of a developer or an engineer is not to write code. The job is to solve problems.
+The job of a developer or an engineer is not to write code. The job is to solve problems.
 {: .quote }
 
 {: .empty2_5 }

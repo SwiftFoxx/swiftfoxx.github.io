@@ -154,12 +154,6 @@ a:focus-visible {
    Layout
    ========================================================================== */
 
-.container {
-    max-width: 720px;
-    padding: 0 1rem;
-    margin: 0 auto;
-}
-
 header,
 main,
 footer {
@@ -307,7 +301,7 @@ button:disabled {
 .hero {
     display: block;
     max-width: 100%;
-    height: 60vh;
+    height: clamp(240px, 60vh, 520px);
     background-image: url(../Resources/Swift.png);
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -437,5 +431,20 @@ button:disabled {
 
     pre {
         background: #020617;
+    }
+}
+
+@media (width < 640px) {
+    .hero {
+        background-image: url(../Resources/Swift-small.png);
+    }
+
+    .two-col-grid {
+        padding: 0;
+        gap: 1rem 1rem;
+    }
+
+    .glass-search {
+        width: 89px;
     }
 }
