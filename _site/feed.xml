@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-11T10:17:31+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">SwiftFoxx</title><subtitle>Practical articles on building modern apps with Swift and SwiftUI</subtitle><entry><title type="html">Everyday SwiftUI How-To’s</title><link href="http://localhost:4000/everyday-swift-how-tos/" rel="alternate" type="text/html" title="Everyday SwiftUI How-To’s" /><published>2026-01-05T00:00:00+05:30</published><updated>2026-01-05T00:00:00+05:30</updated><id>http://localhost:4000/everyday-swift-how-tos</id><content type="html" xml:base="http://localhost:4000/everyday-swift-how-tos/"><![CDATA[<h1 id="everyday-swiftui-how-tos">Everyday SwiftUI How-To’s</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-13T11:17:30+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">SwiftFoxx</title><subtitle>Practical articles on building modern apps with Swift and SwiftUI</subtitle><entry><title type="html">Everyday SwiftUI How-To’s</title><link href="http://localhost:4000/everyday-swift-how-tos/" rel="alternate" type="text/html" title="Everyday SwiftUI How-To’s" /><published>2026-01-05T00:00:00+05:30</published><updated>2026-01-05T00:00:00+05:30</updated><id>http://localhost:4000/everyday-swift-how-tos</id><content type="html" xml:base="http://localhost:4000/everyday-swift-how-tos/"><![CDATA[<h1 id="everyday-swiftui-how-tos">Everyday SwiftUI How-To’s</h1>
 
 <p>Jan 05, 2026 <span class="hashtag">General</span></p>
 
@@ -36,7 +36,7 @@
         <h4>How many ways are there to make a chunk of code reusable</h4>
         <p>In 2026, we can't engineer an app without reusability. It's scalable, customizable and saves a lot of time. But how many ways can we make something reusable?</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="/how-tos/customizing-buttons/">
         <h4>Buttons, did you say?</h4>
         <p>Let's customize the buttons, shall we?<br />Almost no designer uses the default button styles that Apple gives us and it takes ages to figure out the whats and hows. Let's get into buttons and actions.</p>
     </a>

@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/carousel.css">
+
+{% assign images = include.images | split: "," %}
+{% assign caption = include.caption %}
+
+<div class="carousel-wrapper">
+    <button class="carousel-expand">
+        <img>
+    </button>
+
+    <ul class="carousel" tabindex="0">
+        {% for img in images %}
+        <li>
+            <img src="{{ img | strip }}" alt="">
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="carousel-markers" aria-hidden="true">
+        {% for i in images %}
+        <button></button>
+        {% endfor %}
+    </div>
+
+    <div class="empty2_5">
+        <figcaption>{{ caption }}</figcaption>
+    </div>
+
+    <div class="carousel-overlay">
+        <p>Click anywhere to dismiss</p>
+        <img>
+    </div>
+</div>
+
+<script src="/js/carousel.js"></script>
