@@ -7,6 +7,8 @@ date: Jan 10, 2026
 
 # Buttons, Did You Say?
 
+<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
+
 If you want an action, you need a button.
 {: .quote }
 
