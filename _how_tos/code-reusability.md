@@ -1,7 +1,7 @@
 ---
 layout: post
-title: The Magical Preview Canvas
-description: Previewing with Xcode
+title: How Many Ways Are There To Make A Chunk Of Code Reusable
+description: A comprehensive guide to code reusability in Swift, covering functions, types, protocols, generics, composition, and modular design with real examples.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png
 date: Jan 9, 2026
 ---
