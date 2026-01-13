@@ -2,6 +2,7 @@
 layout: post
 title: Everyday SwiftUI How-To's
 description: A collection of practical, everyday SwiftUI how-tos covering common layout, styling, previews, and system behavior patterns used in real apps.
+og-image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/everyday.how.to.cover.png
 date: Jan 05, 2026
 ---
 
@@ -58,15 +59,15 @@ This collection serves as a foundation for everything that follows—simple, rep
         <h4>How to add a divider with custom spacing</h4>
         <p>Dividers are essential to lists and large views displaying multiple sections. But can we customize them?</p>
     </a>
-    <a class="element" href="#">
+    <a class="element" href="/how-tos/use-sf-symbols-correctly/">
         <h4>How to use SF Symbols correctly</h4>
         <p>SF Symbols pack thousands of icons that apps generally need. They are customizable in more ways than one and it's vast. Let's explore some of those.</p>
     </a>
-    <a class="element" href="#">
+    <a class="element" href="/how-tos/support-dark-mode-properly/">
         <h4>How to support Dark Mode properly</h4>
         <p>Color scheme is handled by the system by default. But how to make it change on demand?</p>
     </a>
-    <a class="element" href="#">
+    <a class="element" href="/how-tos/build-settings-scene/">
         <h4><span class="highlight">Section Finale!</span> Let's build a settings scene.</h4>
         <p>Let's end this section of the blog by building a Settings scene using default and reusable components.</p>
     </a>
