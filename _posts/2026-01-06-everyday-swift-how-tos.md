@@ -46,7 +46,7 @@ This collection serves as a foundation for everything that follows—simple, rep
         <h4>How many ways are there to make a chunk of code reusable</h4>
         <p>In 2026, we can't engineer an app without reusability. It's scalable, customizable and saves a lot of time. But how many ways can we make something reusable?</p>
     </a>
-    <a class="element" href="./create-new-project-with-xcode.html">
+    <a class="element" href="/how-tos/customizing-buttons/">
         <h4>Buttons, did you say?</h4>
         <p>Let's customize the buttons, shall we?<br>Almost no designer uses the default button styles that Apple gives us and it takes ages to figure out the whats and hows. Let's get into buttons and actions.</p>
     </a>
