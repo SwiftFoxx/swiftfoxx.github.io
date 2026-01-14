@@ -138,49 +138,62 @@ h5 {
     flex-grow: 1;
     row-gap: 16px;
     column-width: 100%;
-}
 
-.list .element {
-    position: relative;
-    padding: 0.4em 3em 0.4em 0em;
-    border-bottom: 0.1rem solid var(--separator);
-    cursor: pointer;
-    color: inherit;
-    text-decoration: none;
-}
+    .element {
+        position: relative;
+        padding: 0.4em 3em 0.4em 0em;
+        border-bottom: 0.1rem solid var(--separator);
+        cursor: pointer;
+        color: inherit;
+        text-decoration: none;
 
-.list .element::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
 
-    background-color: var(--chevron-color);
+            background-color: var(--chevron-color);
 
-    mask-image: url(../Resources/svg/chevron.right.svg);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
+            mask-image: url(../Resources/svg/chevron.right.svg);
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
 
-    -webkit-mask-image: url(../Resources/svg/chevron.right.svg);
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
+            -webkit-mask-image: url(../Resources/svg/chevron.right.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            -webkit-mask-size: contain;
 
-    opacity: 0.7;
-}
+            opacity: 0.7;
+        }
 
-.list .element h4 {
-    margin-bottom: 0.1em;
-    text-transform: capitalize;
-}
+        &:hover {
+            color: var(--orange-text);
 
-.list .element p {
-    margin-top: 0;
-    opacity: 0.6;
+            p {
+                opacity: 1;
+            }
+        }
+
+        &:hover::after {
+            background-color: var(--orange-text);
+            opacity: 1;
+        }
+
+        h4 {
+            margin-bottom: 0.1em;
+            text-transform: capitalize;
+        }
+
+        p {
+            margin-top: 0;
+            opacity: 0.6;
+        }
+    }
 }
 
 .empty1 {
@@ -235,9 +248,9 @@ h5 {
 
 @media (width < 640px) {
     .wrapper h1 {
-        max-width: 70%;
+        max-width: 100%;
         line-height: 1;
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .cover-image {
