@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,8 @@
   {% endif %}
 
   {% seo %}
-  
+
+  <meta name="robots" content="index,follow">
   <!-- <meta name="description" content="{{ page.description }}">
   <meta name="keywords" content="{{ page.keywords }}">
   <meta name="author" content="SwiftFoxx">
@@ -21,16 +23,38 @@
   <meta property="og:description" content="{{ page.description }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   <meta property="og:image" content="{{ site.og_image }}"> -->
-
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/postsstyle.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ page.title }}",
+    "description": "{{ page.description }}",
+    "author": {
+      "@type": "Person",
+      "name": "SwiftFoxx"
+    },
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}"
+    }
+  }
+  </script>
+
   <script src="/js/nav-scroll.js" defer></script>
+  <script src="/js/image-no-interaction.js"></script>
 </head>
+
 <body>
 
   {{ content }}
 
 </body>
+
 </html>

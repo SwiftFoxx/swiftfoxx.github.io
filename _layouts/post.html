@@ -10,6 +10,7 @@
     <meta name="description" content="{{ page.description }}">
     <meta name="keywords" content="{{ page.keywords }}">
     <meta name="author" content="SwiftFoxx">
+    <meta name="robots" content="index,follow">
 
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{ page.title }}">
@@ -17,13 +18,34 @@
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:image" content="{{ page.og_image }}">
 
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/eachpost.css">
     <link rel="stylesheet" href="/css/codehighlight.css">
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "{{ page.title }}",
+      "description": "{{ page.description }}",
+      "author": {
+        "@type": "Person",
+        "name": "SwiftFoxx"
+      },
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ page.url }}"
+      }
+    }
+    </script>
+
     <script src="/js/nav-scroll.js" defer></script>
     <script src="/js/code-lang-detect.js"></script>
+    <script src="/js/image-no-interaction.js"></script>
 </head>
 
 <body>

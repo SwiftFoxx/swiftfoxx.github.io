@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +26,8 @@
 {"@context":"https://schema.org","@type":"WebSite","description":"Practical articles on building modern apps with Swift and SwiftUI.","headline":"SwiftBlog","name":"SwiftFoxx","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
-  
+
+  <meta name="robots" content="index,follow">
   <!-- <meta name="description" content="Practical articles on building modern apps with Swift and SwiftUI.">
   <meta name="keywords" content="Swift, SwiftUI, Apple development">
   <meta name="author" content="SwiftFoxx">
@@ -35,13 +37,34 @@
   <meta property="og:description" content="Practical articles on building modern apps with Swift and SwiftUI.">
   <meta property="og:url" content="http://localhost:4000/">
   <meta property="og:image" content=""> -->
-
+  <link rel="canonical" href="http://localhost:4000/">
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/postsstyle.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "SwiftBlog",
+    "description": "Practical articles on building modern apps with Swift and SwiftUI.",
+    "author": {
+      "@type": "Person",
+      "name": "SwiftFoxx"
+    },
+    "datePublished": "",
+    "dateModified": "",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http://localhost:4000/"
+    }
+  }
+  </script>
+
   <script src="/js/nav-scroll.js" defer></script>
+  <script src="/js/image-no-interaction.js"></script>
 </head>
+
 <body>
 
   <nav class="navigation">
@@ -81,4 +104,5 @@
 </section>
 
 </body>
+
 </html>
