@@ -10,5 +10,5 @@ date: Jan 12, 2026
 
 <p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
 
-![Divider Symbolic Image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/sf.symbols.cover.png){: .cover-image }
+![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/sf.symbols.cover.png){: .cover-image }
 

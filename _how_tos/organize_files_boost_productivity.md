@@ -2,6 +2,7 @@
 layout: post
 title: Organize Files to Boost Productivity
 description: How to structure Swift & SwiftUI projects for long-term maintainability.
+og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/organize.files.cover.png
 date: Jan 07 2026
 ---
 
@@ -9,7 +10,7 @@ date: Jan 07 2026
 <!-- No way to style plain text, i.e. <p> in md -->
 <p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">projectStructure</span></p>
 
-{: .empty1 }
+![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/organize.files.cover.png){: .cover-image }
 
 Organizing your files in a specific structure is important not only because it "*looks*" good, but also because it can speed up your development, improve how you code, and even decrease build and compile time.
 
