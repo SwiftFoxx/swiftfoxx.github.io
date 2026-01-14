@@ -301,7 +301,7 @@ button:disabled {
 .hero {
     display: block;
     max-width: 100%;
-    height: clamp(240px, 60vh, 520px);
+    height: 70vh;
     background-image: url(../Resources/Swift.png);
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -436,6 +436,7 @@ button:disabled {
 
 @media (width < 640px) {
     .hero {
+        height: 60vh;
         background-image: url(../Resources/Swift-small.png);
     }
 
