@@ -2,12 +2,15 @@
 layout: post
 title: Get Any View To The Center
 description: Centering views in SwiftUI sounds trivial until it isn’t. This article breaks down how layout, stacks, spacers, frames, and alignment guides actually work when you want something truly centered.
+og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/view.center.cover.png
 date: Jan 10, 2026
 ---
 
 # Get Any View To The Center
 
 <p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
+
+![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/view.center.cover.png){: .cover-image }
 
 Centering a view sounds like the most basic layout task you could imagine. And yet, in SwiftUI, it’s one of the first things that forces you to truly understand how the layout system works. SwiftUI doesn’t position views by absolute coordinates. Instead, it negotiates size and position through a parent–child layout conversation. Centering is not a command; it’s a result.
 

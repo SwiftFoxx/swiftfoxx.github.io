@@ -8,3 +8,4 @@ date: Jan 13, 2026
 
 # How To Support Dark Mode Properly
 
+![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/dark.mode.cover.png){: .cover-image }

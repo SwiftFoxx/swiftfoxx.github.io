@@ -2,13 +2,15 @@
 layout: post
 title: How Many Ways Are There To Make A Chunk Of Code Reusable
 description: A comprehensive guide to code reusability in Swift, covering functions, types, protocols, generics, composition, and modular design with real examples.
-og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png
+og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/reusable.code.cover.png
 date: Jan 9, 2026
 ---
 
 # How Many Ways Are There To Make A Chunk Of Code Reusable
 
 <p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">code</span></p>
+
+![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/reusable.code.cover.png){: .cover-image }
 
 Reusability is the key for making any app scalable and flexible. Without it, we keep writing the same piece of code over and over in different files. And this repetition results in increased complexity, more difficult to write test cases and more.
 
