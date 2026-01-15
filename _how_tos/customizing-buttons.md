@@ -2,7 +2,7 @@
 layout: post
 title: 'SwiftUI Tutorial: How To Customize Buttons'
 description: Almost no designer uses the default button styles that Apple gives us and it takes ages to figure out the whats and hows. Let's get into buttons and actions.
-og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/buttons.cover.png
+og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/buttons.cover.png
 date: Jan 10, 2026
 tags: swiftui, tutorial
 ---

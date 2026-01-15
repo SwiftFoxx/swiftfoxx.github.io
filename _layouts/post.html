@@ -56,7 +56,15 @@
     <div class="wrapper">
       {{ content }}
     </div>
-    <aside class="trailing-rail"></aside>
+    <aside class="trailing-rail">
+      <p><b>Published</b></p>
+      <p> {{ page.date | date: "%b %d, %Y" }}</p>
+      {% assign revision = page.revision %}
+      {% if revision %}
+      <p><b>Last Updated</b></p>
+      <p> {{ revision }}</p>
+      {% endif %}
+    </aside>
   </div>
 </body>
 

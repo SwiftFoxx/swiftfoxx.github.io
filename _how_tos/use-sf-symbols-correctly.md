@@ -2,8 +2,9 @@
 layout: post
 title: 'SwiftUI Tutorial: How To Use SF Symbols Correctly'
 description: How To Use SF Symbols Correctly
-og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/sf.symbols.cover.png
+og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/sf.symbols.cover.png
 date: Jan 12, 2026
+revision: Jan 13, 2026
 tags: swiftui, tutorial
 ---
 
@@ -37,7 +38,7 @@ This is why SF Symbols scale perfectly with Dynamic Type, align naturally with t
 
 If you treat them like images, you will fight them. If you treat them like text, they start remember how to behave.
 
-## Let Text Drive Size, Not Frames
+## Let Font Drive Size, Not Frames
 
 One of the earliest mistakes I made was forcing SF Symbols into fixed frames.
 
