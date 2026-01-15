@@ -2,6 +2,7 @@
 layout: landing
 title: SwiftBlog
 description: Practical articles on building modern apps with Swift and SwiftUI.
+og_image: https://swiftfoxx.github.io/swiftblog-assets/images/og/blog.og.png
 keywords: Swift, SwiftUI, Apple development
 ---
 
