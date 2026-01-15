@@ -2,7 +2,7 @@
 layout: post
 title: 'SwiftUI  Tutorial: How To Add A Divider With Custom Spacing'
 description: How to customize a divider — horizontal or vertical — in SwiftUI
-og-image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/divider.cover.png
+og-image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/divider.cover.png
 date: Jan 11, 2026
 tags: swiftui, tutorial
 ---

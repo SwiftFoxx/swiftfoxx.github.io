@@ -1,14 +1,15 @@
 @import url(./style.css);
 
 :root {
-    --quote-border-color: #aaaaaa;
-    --hr-color: #e0e0e1;
-    --separator: #f0f0f0;
-    --chevron-color: #000000;
-    --orange-text: #f0681f;
-    --orange-background: #f0681f25;
-    --gray-background: #81858b;
-    --gray-background-50: #81858b40;
+    --quote-border-color: hsl(0, 0%, 67%);
+    --hr-color: hsl(240, 2%, 88%);
+    --separator: hsl(0, 0%, 94%);
+    --chevron-color: hsl(0, 0%, 0%);
+    --orange-text: hsl(21, 87%, 53%);
+    --orange-background: hsla(21, 87%, 53%, 0.145);
+    --gray-background: hsl(216, 4%, 53%);
+    --gray-background-50: hsla(216, 4%, 53%, 0.251);
+    --secondary-text: hsl(240, 4%, 38%);
 }
 
 hr {
@@ -36,6 +37,7 @@ figcaption {
 .main-container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
+    height: 100dvh;
 }
 
 .wrapper {
@@ -44,6 +46,9 @@ figcaption {
     display: flex;
     flex-direction: column;
     padding: 2em;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
 
     & div {
         font-family:
@@ -113,6 +118,30 @@ figcaption {
 .trailing-rail {
     margin: 1.5rem 0;
     padding: 1.5rem 0;
+
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    & p {
+        margin: 0;
+        padding: 0;
+        font-size: 0.8rem;
+    }
+
+    & p:not(:has(b)) {
+        margin-block-end: 0.8rem;
+        color: var(--secondary-text);
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: color-mix(in srgb, currentColor 30%, transparent);
+        border-radius: 999px;
+    }
 }
 
 .code {
@@ -198,6 +227,7 @@ figcaption {
     &:hover {
         color: var(--orange-text);
         text-decoration: none;
+
         p {
             opacity: 1;
         }
@@ -267,6 +297,7 @@ figcaption {
         --orange-background: #cb6d3a44;
         --gray-background: #494c52;
         --gray-background-50: #494c52a6;
+        --secondary-text: hsl(240, 7%, 70%);
     }
 }
 
