@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SwiftUI Tutorial: How To Support Dark Mode Properly — SwiftFoxx</title>
+  <title>SwiftUI Tutorial: How To Support Dark Mode Properly — SwiftFoxx</title>
 
-    <meta name="description" content="How To Support Dark Mode Properly">
-    <meta name="keywords" content="">
-    <meta name="author" content="SwiftFoxx">
-    <meta name="robots" content="index,follow">
+  <meta name="description" content="How To Support Dark Mode Properly">
+  <meta name="keywords" content="">
+  <meta name="author" content="SwiftFoxx">
+  <meta name="robots" content="index,follow">
 
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="SwiftUI Tutorial: How To Support Dark Mode Properly">
-    <meta property="og:description" content="How To Support Dark Mode Properly">
-    <meta property="og:url" content="http://localhost:4000/how-tos/support-dark-mode-properly/">
-    <meta property="og:image" content="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/dark.mode.cover.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SwiftUI Tutorial: How To Support Dark Mode Properly">
+  <meta property="og:description" content="How To Support Dark Mode Properly">
+  <meta property="og:url" content="http://localhost:4000/how-tos/support-dark-mode-properly/">
+  <meta property="og:image" content="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/dark.mode.cover.png">
 
-    <link rel="canonical" href="http://localhost:4000/how-tos/support-dark-mode-properly/">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/eachpost.css">
-    <link rel="stylesheet" href="/css/codehighlight.css">
+  <link rel="canonical" href="http://localhost:4000/how-tos/support-dark-mode-properly/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/eachpost.css">
+  <link rel="stylesheet" href="/css/codehighlight.css">
 
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -43,13 +43,13 @@
     }
     </script>
 
-    <script src="/js/nav-scroll.js" defer></script>
-    <script src="/js/code-lang-detect.js"></script>
-    <script src="/js/image-no-interaction.js"></script>
+  <script src="/js/nav-scroll.js" defer></script>
+  <script src="/js/code-lang-detect.js"></script>
+  <script src="/js/image-no-interaction.js"></script>
 </head>
 
 <body>
-    <nav class="navigation">
+  <nav class="navigation">
     <div class="menu-left">
         <a href="/">swiftfoxx /</a>
     </div>
@@ -61,15 +61,254 @@
         </div>
     </div>
 </nav>
+  <div class="main-container">
+    <aside class="leading-rail">
+    </aside>
     <div class="wrapper">
-        <h1 id="how-to-support-dark-mode-properly">How To Support Dark Mode Properly</h1>
+      <h1 id="how-to-support-dark-mode-properly-in-swiftui">How To Support Dark Mode Properly in SwiftUI</h1>
 
 <p>Jan 13, 2026 <span class="hashtag">SwiftUI</span></p>
 
 <p><img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/dark.mode.cover.png" alt="cover image" class="cover-image" /></p>
 
-    </div>
+<p>Supporting Dark Mode in SwiftUI looks effortless at first glance. Toggle the system appearance while running the app, and suddenly everything inverts itself. Text becomes light, backgrounds become dark, and the app feels “done”.</p>
 
+<p>That confidence fades quickly once real users start using your app in different environments, with different accessibility settings, custom color schemes, images, charts, sheets, modals, third‑party components, and dynamic content.</p>
+
+<p>Proper Dark Mode support is not about inversion. It is about intent, contrast, adaptability, and respecting system semantics at every layer of your UI.</p>
+
+<p>This article moves from fundamentals to advanced edge cases, focusing on what <em>actually</em> breaks in production and how to prevent it.</p>
+
+<h2 id="what-dark-mode-really-means-in-swiftui">What Dark Mode Really Means in SwiftUI</h2>
+
+<p>Dark Mode is not a theme. It is an environmental trait. SwiftUI does not ask you to “apply” Dark Mode — it informs your views that the environment has changed.</p>
+
+<p>The most important implication is that your UI must respond dynamically, not statically.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@Environment</span><span class="p">(\</span><span class="o">.</span><span class="n">colorScheme</span><span class="p">)</span> <span class="kd">private</span> <span class="k">var</span> <span class="nv">colorScheme</span>
+</code></pre></div></div>
+
+<p>This value is ephemeral. It can change while your app is running. Any logic that assumes a fixed appearance is already incorrect.</p>
+
+<p>A common mistake is treating Dark Mode as a boolean switch. The moment you branch logic heavily on <code class="language-plaintext inline-code highlighter-rouge">if colorScheme == .dark</code>, you should pause and ask whether the system already provides a semantic abstraction for what you are trying to do.</p>
+
+<h2 id="system-colors-are-not-optional">System Colors Are Not Optional</h2>
+
+<p>SwiftUI’s system colors are appearance‑aware, contrast‑aware, accessibility‑aware, and future‑proof.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Text</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">primary</span><span class="p">)</span>
+
+<span class="kt">Text</span><span class="p">(</span><span class="s">"Secondary"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">secondary</span><span class="p">)</span>
+
+<span class="kt">Rectangle</span><span class="p">()</span>
+    <span class="o">.</span><span class="nf">fill</span><span class="p">(</span><span class="o">.</span><span class="n">background</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext inline-code highlighter-rouge">.primary</code>, <code class="language-plaintext inline-code highlighter-rouge">.secondary</code>, <code class="language-plaintext inline-code highlighter-rouge">.background</code>, <code class="language-plaintext inline-code highlighter-rouge">.tertiary</code>, <code class="language-plaintext inline-code highlighter-rouge">.separator</code>, and <code class="language-plaintext inline-code highlighter-rouge">.tint</code> are not conveniences. They encode intent.</p>
+
+<p>When you hardcode colors, you are replacing semantic meaning with assumptions.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This is fragile</span>
+<span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="o">.</span><span class="n">black</span><span class="p">)</span>
+
+<span class="c1">// This is correct</span>
+<span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">primary</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Hardcoded colors often look acceptable in Dark Mode previews, but they fail under increased contrast, reduce transparency, or accessibility color filters.</p>
+
+<h2 id="when-custom-colors-are-necessary">When Custom Colors Are Necessary</h2>
+
+<p>Design systems often require brand colors. The mistake is not using custom colors — it is defining them incorrectly.</p>
+
+<p>Never define colors with a single RGB value and reuse them everywhere.</p>
+
+<p>Instead, define appearance‑aware colors in the asset catalog.</p>
+
+<p>In Xcode, create a Color Set and define values for Light, Dark, and optionally High Contrast.</p>
+
+<p>Then reference it semantically.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Color</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">brandAccent</span> <span class="o">=</span> <span class="kt">Color</span><span class="p">(</span><span class="s">"BrandAccent"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This allows SwiftUI to resolve the correct variant automatically when the environment changes.</p>
+
+<p>Avoid computing colors at runtime based on <code class="language-plaintext highlighter-rouge">colorScheme</code>. Asset catalogs are resolved at a deeper system level and adapt better to future appearance changes.</p>
+
+<h2 id="images-and-dark-mode-are-a-silent-curveball">Images and Dark Mode Are a Silent Curveball</h2>
+
+<p>Images are the most common Dark Mode challenges.</p>
+
+<p>Icons with baked‑in black strokes disappear in Dark Mode. PNG shadows glow incorrectly. Screenshots clash violently with dark backgrounds.</p>
+
+<p>Prefer SF Symbols whenever possible.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"moon.fill"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolRenderingMode</span><span class="p">(</span><span class="o">.</span><span class="n">hierarchical</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">tint</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When using custom images, provide appearance variants in the asset catalog.</p>
+
+<p>Avoid template rendering for complex illustrations unless they were designed for it.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="s">"logo"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">renderingMode</span><span class="p">(</span><span class="o">.</span><span class="n">original</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>If an image must adapt to both modes, design it to survive on both light and dark backgrounds without relying on transparency hacks.</p>
+
+<h2 id="backgrounds-materials-and-elevation">Backgrounds, Materials, and Elevation</h2>
+
+<p>Pure black backgrounds are rarely correct in SwiftUI apps. Apple’s design language relies on layered materials, not flat fills.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">background</span><span class="p">(</span><span class="o">.</span><span class="n">ultraThinMaterial</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Materials automatically adapt their opacity, blur, and contrast based on the appearance and accessibility settings.</p>
+
+<p>For solid surfaces, prefer semantic backgrounds.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">background</span><span class="p">(</span><span class="o">.</span><span class="n">background</span><span class="p">)</span>
+<span class="o">.</span><span class="nf">background</span><span class="p">(</span><span class="o">.</span><span class="n">secondarySystemBackground</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Avoid stacking opaque dark colors. It destroys depth and causes visual fatigue.</p>
+
+<h2 id="text-contrast-and-accessibility">Text Contrast and Accessibility</h2>
+
+<p>Text that looks readable to you may fail <strong>WCAG contrast requirements</strong>.</p>
+
+<p>SwiftUI’s dynamic text colors adjust automatically, but custom colors do not.</p>
+
+<p>Avoid lowering opacity manually.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Problematic</span>
+<span class="kt">Text</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">opacity</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+
+<span class="c1">// Better</span>
+<span class="kt">Text</span><span class="p">(</span><span class="s">"Disabled"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">secondary</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Opacity compounds with Dark Mode and accessibility contrast settings, often making text unreadable.</p>
+
+<p><u>Always test with Increased Contrast enabled in Accessibility settings.</u></p>
+
+<h2 id="lists-forms-and-containers">Lists, Forms, and Containers</h2>
+
+<p>Lists and Forms have different behaviors in Dark Mode depending on style.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">List</span> <span class="p">{</span>
+    <span class="kt">Text</span><span class="p">(</span><span class="s">"Item"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="nf">listStyle</span><span class="p">(</span><span class="o">.</span><span class="n">insetGrouped</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Avoid forcing backgrounds inside lists. SwiftUI already handles row materials and separators differently per appearance.</p>
+
+<p>If you must customize, do it minimally.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">listRowBackground</span><span class="p">(</span><span class="kt">Color</span><span class="o">.</span><span class="n">clear</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Overriding list backgrounds is one of the fastest ways to break Dark Mode consistency.</p>
+
+<h2 id="sheets-modals-and-presentation-nuances">Sheets, Modals, and Presentation Nuances</h2>
+
+<p>Sheets automatically adopt the correct background and material. Problems arise when content assumes a white canvas.</p>
+
+<p>Avoid this:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">background</span><span class="p">(</span><span class="kt">Color</span><span class="o">.</span><span class="n">white</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Prefer:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">background</span><span class="p">(</span><span class="o">.</span><span class="n">background</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When designing custom sheets, test them in both appearances with partial detents and large content sizes.</p>
+
+<p>Dark Mode amplifies visual noise. Spacing and hierarchy matter more.</p>
+
+<h2 id="charts-gradients-and-data-visualizations">Charts, Gradients, and Data Visualizations</h2>
+
+<p>Gradients often fail in Dark Mode because they were designed for light backgrounds.</p>
+
+<p>Prefer subtle gradients with reduced saturation.</p>
+
+<p>When drawing custom shapes, always reference semantic colors.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Path</span> <span class="p">{</span> <span class="n">path</span> <span class="k">in</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="nf">stroke</span><span class="p">(</span><span class="o">.</span><span class="n">primary</span><span class="p">,</span> <span class="nv">lineWidth</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Never assume white or black axes. Always test charts against both appearances.</p>
+
+<h2 id="forcing-color-scheme-is-almost-always-wrong">Forcing Color Scheme Is Almost Always Wrong</h2>
+
+<p>SwiftUI allows forcing an appearance.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">preferredColorScheme</span><span class="p">(</span><span class="o">.</span><span class="n">dark</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This should be reserved for previews and extremely specific experiences like media playback or immersive content.</p>
+
+<p>Forcing Dark Mode globally breaks user expectations, accessibility, and system consistency.</p>
+
+<p>Respect the user’s choice.</p>
+
+<h2 id="previewing-dark-mode-correctly">Previewing Dark Mode Correctly</h2>
+
+<p>Relying on a single preview is insufficient.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#Preview("Light") {</span>
+    <span class="kt">ContentView</span><span class="p">()</span>
+        <span class="o">.</span><span class="nf">preferredColorScheme</span><span class="p">(</span><span class="o">.</span><span class="n">light</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview("Dark") {</span>
+    <span class="kt">ContentView</span><span class="p">()</span>
+        <span class="o">.</span><span class="nf">preferredColorScheme</span><span class="p">(</span><span class="o">.</span><span class="n">dark</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Also preview with Dynamic Type, Increased Contrast, and Reduce Transparency enabled.</p>
+
+<p>Dark Mode failures often appear only when multiple settings combine.</p>
+
+<h2 id="what-not-to-do-ever">What Not To Do, Ever</h2>
+
+<p>Never hardcode white or black as a background or text color.<br />
+Never rely on opacity to convey hierarchy.<br />
+Never assume Dark Mode is “just inversion”.<br />
+Never ship without testing accessibility combinations.<br />
+Never fix Dark Mode issues by branching logic instead of fixing semantics.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>If you remember only one thing, remember this:</p>
+
+<p>Design with meaning, not appearance.</p>
+
+<p>SwiftUI already knows how Dark Mode should behave. Your job is to avoid fighting it.</p>
+
+<p>When you choose semantic colors, adaptive materials, appearance‑aware assets, and system behaviors, Dark Mode support becomes automatic, resilient, and future‑proof.</p>
+
+<p>Anything else is technical debt waiting to surface.</p>
+
+    </div>
+    <aside class="trailing-rail"></aside>
+  </div>
 </body>
 
 </html>

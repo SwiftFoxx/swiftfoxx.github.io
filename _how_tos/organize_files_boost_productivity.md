@@ -4,6 +4,7 @@ title: 'Swift  Tutorial: Organize Files to Boost Productivity'
 description: How to structure Swift & SwiftUI projects for long-term maintainability.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/organize.files.cover.png
 date: Jan 07 2026
+tags: general, tutorial
 ---
 
 # Organize Your Files To Boost Productivity

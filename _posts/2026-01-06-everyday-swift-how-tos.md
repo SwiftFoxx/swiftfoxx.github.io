@@ -4,6 +4,7 @@ title: Everyday SwiftUI How-To's
 description: A collection of practical, everyday SwiftUI how-tos covering common layout, styling, previews, and system behavior patterns used in real apps.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/everyday.how.to.cover.png
 date: Jan 05, 2026
+tags: general
 ---
 
 # Everyday SwiftUI How-To's
@@ -13,9 +14,11 @@ date: Jan 05, 2026
 The job of a developer or an engineer is not to write code. The job is to solve problems.
 {: .quote }
 
-{: .empty2_5 }
+{: .mt-1 }
 
 ![conver image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/everyday.how.to.cover.png){: .cover-image }
+
+{: .mt-2 }
 
 SwiftUI is designed to be expressive, concise, and closely aligned with how UI is described. Most day-to-day development involves small, practical decisions: *layout adjustments, view visibility, styling, previews, and adapting to system appearance*.
 
@@ -29,7 +32,11 @@ These articles act as practical references that you can read, code along, and re
 
 This collection serves as a foundation for everything that follows—simple, repeatable solutions that keep SwiftUI layouts predictable, consistent, and aligned with system behavior.
 
-{: .empty5 }
+{: .mt-3 }
+
+---
+
+{: .mt-3 }
 
 <div class="list">
     <a class="element" href="/how-tos/all-about-creating-project-with-xcode/">

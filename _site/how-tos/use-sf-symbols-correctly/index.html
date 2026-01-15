@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SwiftUI Tutorial: How To Use SF Symbols Correctly — SwiftFoxx</title>
+  <title>SwiftUI Tutorial: How To Use SF Symbols Correctly — SwiftFoxx</title>
 
-    <meta name="description" content="How To Use SF Symbols Correctly">
-    <meta name="keywords" content="">
-    <meta name="author" content="SwiftFoxx">
-    <meta name="robots" content="index,follow">
+  <meta name="description" content="How To Use SF Symbols Correctly">
+  <meta name="keywords" content="">
+  <meta name="author" content="SwiftFoxx">
+  <meta name="robots" content="index,follow">
 
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="SwiftUI Tutorial: How To Use SF Symbols Correctly">
-    <meta property="og:description" content="How To Use SF Symbols Correctly">
-    <meta property="og:url" content="http://localhost:4000/how-tos/use-sf-symbols-correctly/">
-    <meta property="og:image" content="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/sf.symbols.cover.png">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SwiftUI Tutorial: How To Use SF Symbols Correctly">
+  <meta property="og:description" content="How To Use SF Symbols Correctly">
+  <meta property="og:url" content="http://localhost:4000/how-tos/use-sf-symbols-correctly/">
+  <meta property="og:image" content="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/sf.symbols.cover.png">
 
-    <link rel="canonical" href="http://localhost:4000/how-tos/use-sf-symbols-correctly/">
-    <link rel="icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/eachpost.css">
-    <link rel="stylesheet" href="/css/codehighlight.css">
+  <link rel="canonical" href="http://localhost:4000/how-tos/use-sf-symbols-correctly/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/eachpost.css">
+  <link rel="stylesheet" href="/css/codehighlight.css">
 
-    <script type="application/ld+json">
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
@@ -43,13 +43,13 @@
     }
     </script>
 
-    <script src="/js/nav-scroll.js" defer></script>
-    <script src="/js/code-lang-detect.js"></script>
-    <script src="/js/image-no-interaction.js"></script>
+  <script src="/js/nav-scroll.js" defer></script>
+  <script src="/js/code-lang-detect.js"></script>
+  <script src="/js/image-no-interaction.js"></script>
 </head>
 
 <body>
-    <nav class="navigation">
+  <nav class="navigation">
     <div class="menu-left">
         <a href="/">swiftfoxx /</a>
     </div>
@@ -61,16 +61,276 @@
         </div>
     </div>
 </nav>
+  <div class="main-container">
+    <aside class="leading-rail">
+    </aside>
     <div class="wrapper">
-        <h1 id="how-to-use-sf-symbols-correctly">How To Use SF Symbols Correctly</h1>
+      <h1 id="how-to-use-sf-symbols-correctly-in-swiftui">How To Use SF Symbols Correctly in SwiftUI</h1>
 
 <p>Jan 12, 2026 <span class="hashtag">SwiftUI</span></p>
 
 <p><img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/sf.symbols.cover.png" alt="cover image" class="cover-image" /></p>
 
+<p>SF Symbols look simple. You type a name, drop it into an <code class="language-plaintext inline-code highlighter-rouge">Image(systemName:)</code>, and you’re done. For a while, that illusion holds. The icon shows up, it scales, it changes color, and everything feels “native”.</p>
+
+<p>Then the app grows.</p>
+
+<p>Icons start looking too bold in some places and too light in others. They clash with Dark Mode. They don’t align visually with text. They break when you enable accessibility settings. Suddenly, something that felt trivial starts leaking polish everywhere.</p>
+
+<p>Using SF Symbols correctly is less about memorizing symbol names and more about understanding how they behave, how SwiftUI renders them, and how the system expects you to treat them.</p>
+
+<h2 id="sf-symbols-are-not-images">SF Symbols Are Not Images</h2>
+
+<p>The biggest mental shift is realizing that SF Symbols are not bitmap assets. They are vector glyphs that participate in typography, layout, and accessibility.</p>
+
+<p>When you write:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"heart.fill"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>you are not placing an image. You are placing a symbol that behaves more like text than a PNG.</p>
+
+<p>This is why SF Symbols scale perfectly with Dynamic Type, align naturally with text baselines, and adapt automatically to different weights and appearances.</p>
+
+<p>If you treat them like images, you will fight them. If you treat them like text, they start remember how to behave.</p>
+
+<h2 id="let-text-drive-size-not-frames">Let Text Drive Size, Not Frames</h2>
+
+<p>One of the earliest mistakes I made was forcing SF Symbols into fixed frames.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"star.fill"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">frame</span><span class="p">(</span><span class="nv">width</span><span class="p">:</span> <span class="mi">24</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">24</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This works visually until it doesn’t. The moment Dynamic Type changes, the symbol stops feeling proportional to nearby text.</p>
+
+<p>The correct approach is to let font sizing drive symbol size.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"star.fill"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">font</span><span class="p">(</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Because SF Symbols are glyphs, they inherit font metrics. This keeps icons visually aligned with text across different sizes and accessibility settings.</p>
+
+<p>If the symbol is meant to feel like text, size it like text.</p>
+
+<h2 id="weight-scale-and-symbol-variants-matter">Weight, Scale, and Symbol Variants Matter</h2>
+
+<p>SF Symbols are not one-size-fits-all. Many symbols have multiple weights, scales, and fill variants.</p>
+
+<p>SwiftUI exposes this through symbol rendering configuration.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"bell"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">font</span><span class="p">(</span><span class="o">.</span><span class="nf">system</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="nv">weight</span><span class="p">:</span> <span class="o">.</span><span class="n">medium</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Changing weight subtly changes how heavy the icon feels next to text. This matters more than most people expect, especially in toolbars and navigation elements.</p>
+
+<p>Symbol variants are also contextual.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"heart"</span><span class="p">)</span>
+<span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"heart.fill"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Filled symbols often feel correct in selected or emphasized states, while outlined symbols work better in neutral contexts. Mixing these without intention makes UI feel noisy.</p>
+
+<h2 id="rendering-modes-change-everything">Rendering Modes Change Everything</h2>
+
+<p>By default, SF Symbols inherit color from their environment. That’s usually what you want.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"gear"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">primary</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>But SF Symbols support different rendering modes that dramatically affect their appearance.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"wifi"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolRenderingMode</span><span class="p">(</span><span class="o">.</span><span class="n">hierarchical</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">tint</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Hierarchical and palette rendering modes allow parts of a symbol to carry different visual weights or colors. This can add depth without adding noise, especially in Dark Mode.</p>
+
+<p>Avoid forcing <code class="language-plaintext inline-code highlighter-rouge">renderingMode(.template)</code> unless you know exactly why you need it. SF Symbols already behave as templates by default in most contexts.</p>
+
+<h2 id="alignment-with-text-is-not-automatic">Alignment With Text Is Not Automatic</h2>
+
+<p>SF Symbols align well with text, but not perfectly in every case.</p>
+
+<p>When placing symbols inline with text, baseline alignment matters.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">HStack</span><span class="p">(</span><span class="nv">alignment</span><span class="p">:</span> <span class="o">.</span><span class="n">firstTextBaseline</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"exclamationmark.triangle.fill"</span><span class="p">)</span>
+    <span class="kt">Text</span><span class="p">(</span><span class="s">"Warning"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Without baseline alignment, icons often feel slightly off vertically, especially with larger Dynamic Type sizes.</p>
+
+<p>These tiny misalignments add up. They’re rarely obvious in isolation, but they make interfaces feel less intentional.</p>
+
+<h2 id="sf-symbols-and-dark-mode">SF Symbols and Dark Mode</h2>
+
+<p>SF Symbols are designed to adapt automatically to appearance changes. That only works if you let them.</p>
+
+<p>Avoid hardcoding colors.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">foregroundColor</span><span class="p">(</span><span class="o">.</span><span class="n">black</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Prefer semantic styles.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="nf">foregroundStyle</span><span class="p">(</span><span class="o">.</span><span class="n">primary</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When combined with rendering modes like hierarchical or palette, SF Symbols adapt beautifully across Light Mode, Dark Mode, and increased contrast settings.</p>
+
+<p>If an SF Symbol looks wrong in Dark Mode, the issue is usually not the symbol. It’s the color or rendering mode you forced onto it.</p>
+
+<h2 id="accessibility-is-built-in-if-you-dont-break-it">Accessibility Is Built In, If You Don’t Break It</h2>
+
+<p>SF Symbols come with built-in accessibility descriptions. That’s a huge win, but it’s easy to accidentally throw it away.</p>
+
+<p>Avoid wrapping symbols in empty buttons without labels.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Button</span> <span class="p">{</span>
+    <span class="nf">action</span><span class="p">()</span>
+<span class="p">}</span> <span class="nv">label</span><span class="p">:</span> <span class="p">{</span>
+    <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"trash"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This looks fine visually but produces a meaningless accessibility experience.</p>
+
+<p>Always provide context.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Button</span> <span class="p">{</span>
+    <span class="nf">action</span><span class="p">()</span>
+<span class="p">}</span> <span class="nv">label</span><span class="p">:</span> <span class="p">{</span>
+    <span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"trash"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="o">.</span><span class="nf">accessibilityLabel</span><span class="p">(</span><span class="s">"Delete"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>When symbols are purely decorative, mark them as such.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"circle.fill"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">accessibilityHidden</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>SF Symbols want to be accessible. Your job is to not get in the way.</p>
+
+<h2 id="animating-sf-symbols">Animating SF Symbols</h2>
+
+<p>SF Symbols support animation at a system level. This is important. You are not animating paths or layers directly. You are asking the symbol to transition between semantic states.</p>
+
+<p>If an SF Symbol animation feels wrong, it’s usually because the animation was treated like a generic view animation instead of a symbol animation.</p>
+
+<p>SwiftUI gives you dedicated APIs for this reason.</p>
+
+<h2 id="symbol-effects-are-the-foundation">Symbol Effects Are the Foundation</h2>
+
+<p>The modern way to animate SF Symbols is through symbol effects.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"heart.fill"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolEffect</span><span class="p">(</span><span class="o">.</span><span class="n">pulse</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Symbol effects are predefined animations designed specifically for symbols. They respect weight, rendering mode, accessibility settings, and user motion preferences.</p>
+
+<p>Because these effects are semantic, they automatically adapt to different symbol styles and sizes.</p>
+
+<p>If you find yourself manually animating scale or rotation just to “make an icon feel alive”, pause and check whether a symbol effect already exists.</p>
+
+<h2 id="triggering-symbol-effects-with-state">Triggering Symbol Effects With State</h2>
+
+<p>Symbol effects become useful once they are tied to state changes.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"bell.fill"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolEffect</span><span class="p">(</span><span class="o">.</span><span class="n">bounce</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="n">isNotifying</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The animation runs when the value changes. This mental model matters. You are not starting an animation. You are describing how the symbol should react when state changes.</p>
+
+<p>This keeps animations predictable and prevents them from looping unintentionally.</p>
+
+<h2 id="repeating-and-indefinite-animations">Repeating and Indefinite Animations</h2>
+
+<p>Some symbol effects support repetition.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"arrow.triangle.2.circlepath"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolEffect</span><span class="p">(</span><span class="o">.</span><span class="n">rotate</span><span class="p">,</span> <span class="nv">options</span><span class="p">:</span> <span class="o">.</span><span class="n">repeating</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Use repeating animations sparingly. Constant motion draws attention, and attention is expensive.</p>
+
+<p>If a symbol animates indefinitely, it should communicate ongoing activity, not decoration.</p>
+
+<h2 id="layered-and-variable-symbol-effects">Layered and Variable Symbol Effects</h2>
+
+<p>Some SF Symbols are variable symbols. These symbols are designed to animate between internal states.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"wifi"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolEffect</span><span class="p">(</span><span class="o">.</span><span class="n">variableColor</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Variable symbols shine when representing changing intensity or progress. They feel more native than progress bars in tight spaces.</p>
+
+<p>Layered symbols also benefit from effects that respect hierarchy.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"person.crop.circle.fill"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolEffect</span><span class="p">(</span><span class="o">.</span><span class="n">bounce</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The animation understands which layers should move and which should remain stable. This is something manual animations cannot replicate reliably.</p>
+
+<h2 id="combining-symbol-effects-with-view-animations">Combining Symbol Effects With View Animations</h2>
+
+<p>Symbol effects are not exclusive. They can coexist with standard SwiftUI animations.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">Image</span><span class="p">(</span><span class="nv">systemName</span><span class="p">:</span> <span class="s">"plus"</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">symbolEffect</span><span class="p">(</span><span class="o">.</span><span class="n">bounce</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="n">isExpanded</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">rotationEffect</span><span class="p">(</span><span class="n">isExpanded</span> <span class="p">?</span> <span class="o">.</span><span class="nf">degrees</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="p">:</span> <span class="o">.</span><span class="n">zero</span><span class="p">)</span>
+    <span class="o">.</span><span class="nf">animation</span><span class="p">(</span><span class="o">.</span><span class="nf">spring</span><span class="p">(),</span> <span class="nv">value</span><span class="p">:</span> <span class="n">isExpanded</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The key is restraint. Let symbol effects handle symbol-specific motion. Use view animations for layout or transformation changes.</p>
+
+<p>When everything animates, nothing communicates clearly.</p>
+
+<h2 id="respecting-reduce-motion-automatically">Respecting Reduce Motion Automatically</h2>
+
+<p>One of the biggest advantages of symbol effects is that they automatically respect the Reduce Motion accessibility setting.</p>
+
+<p>Manual animations do not.</p>
+
+<p>If you animate SF Symbols using standard <code class="language-plaintext inline-code highlighter-rouge">withAnimation</code> blocks alone, you are responsible for handling motion preferences yourself.</p>
+
+<p>Symbol effects remove that burden and produce more inclusive results by default.</p>
+
+<h2 id="when-not-to-animate-sf-symbols">When Not To Animate SF Symbols</h2>
+
+<p>Not every symbol should move.</p>
+
+<p>Static symbols provide visual stability. Animated symbols demand attention.</p>
+
+<p>If the animation does not communicate state, feedback, or progress, it is probably unnecessary.</p>
+
+<p>Over-animated icons age quickly. Subtle, state-driven motion tends to last much longer.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>The mental shift that makes SF Symbol animation click is simple.</p>
+
+<p>You are not animating an icon. You are describing how a symbol reacts to change.</p>
+
+<p>Once you think in terms of reactions instead of animations, symbol effects feel natural, predictable, and deeply integrated with SwiftUI.</p>
+
+<p>That’s when animated SF Symbols stop feeling flashy and start feeling intentional.</p>
 
     </div>
-
+    <aside class="trailing-rail"></aside>
+  </div>
 </body>
 
 </html>
