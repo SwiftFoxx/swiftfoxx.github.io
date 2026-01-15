@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-14T20:38:19+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">SwiftFoxx</title><subtitle>Practical articles on building modern apps with Swift and SwiftUI</subtitle><entry><title type="html">Everyday SwiftUI How-To’s</title><link href="http://localhost:4000/everyday-swift-how-tos/" rel="alternate" type="text/html" title="Everyday SwiftUI How-To’s" /><published>2026-01-05T00:00:00+05:30</published><updated>2026-01-05T00:00:00+05:30</updated><id>http://localhost:4000/everyday-swift-how-tos</id><content type="html" xml:base="http://localhost:4000/everyday-swift-how-tos/"><![CDATA[<h1 id="everyday-swiftui-how-tos">Everyday SwiftUI How-To’s</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-15T14:33:02+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">SwiftFoxx</title><subtitle>Practical articles on building modern apps with Swift and SwiftUI</subtitle><entry><title type="html">Everyday SwiftUI How-To’s</title><link href="http://localhost:4000/everyday-swift-how-tos/" rel="alternate" type="text/html" title="Everyday SwiftUI How-To’s" /><published>2026-01-05T00:00:00+05:30</published><updated>2026-01-05T00:00:00+05:30</updated><id>http://localhost:4000/everyday-swift-how-tos</id><content type="html" xml:base="http://localhost:4000/everyday-swift-how-tos/"><![CDATA[<h1 id="everyday-swiftui-how-tos">Everyday SwiftUI How-To’s</h1>
 
 <p>Jan 05, 2026 <span class="hashtag">General</span></p>
 
 <p class="quote">The job of a developer or an engineer is not to write code. The job is to solve problems.</p>
 
-<p class="empty2_5"><img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/everyday.how.to.cover.png" alt="conver image" class="cover-image" /></p>
+<p class="mt-1"><img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/everyday.how.to.cover.png" alt="conver image" class="cover-image" /></p>
 
-<p>SwiftUI is designed to be expressive, concise, and closely aligned with how UI is described. Most day-to-day development involves small, practical decisions: <em>layout adjustments, view visibility, styling, previews, and adapting to system appearance</em>.</p>
+<p class="mt-2">SwiftUI is designed to be expressive, concise, and closely aligned with how UI is described. Most day-to-day development involves small, practical decisions: <em>layout adjustments, view visibility, styling, previews, and adapting to system appearance</em>.</p>
 
 <p>This section brings together a set of <strong>focused how-to articles</strong> that address common SwiftUI tasks developers encounter while building real apps. Each post is scoped to a single problem and shows the most direct, idiomatic way to solve it using SwiftUI.</p>
 
@@ -18,7 +18,9 @@
 
 <p>This collection serves as a foundation for everything that follows—simple, repeatable solutions that keep SwiftUI layouts predictable, consistent, and aligned with system behavior.</p>
 
-<div class="list empty5">
+<hr class="mt-3" />
+
+<div class="list mt-3">
     <a class="element" href="/how-tos/all-about-creating-project-with-xcode/">
         <h4>All about creating a project with Xcode</h4>
         <p>Creating a project on Xcode is fairly simple but there are small nuances that do make a differnece.
@@ -60,4 +62,4 @@
         <h4><span class="highlight">Section Finale!</span> Let's build a settings scene.</h4>
         <p>Let's end this section of the blog by building a Settings scene using default and reusable components.</p>
     </a>
-</div>]]></content><author><name></name></author><summary type="html"><![CDATA[A collection of practical, everyday SwiftUI how-tos covering common layout, styling, previews, and system behavior patterns used in real apps.]]></summary></entry></feed>
+</div>]]></content><author><name></name></author><category term="general" /><summary type="html"><![CDATA[A collection of practical, everyday SwiftUI how-tos covering common layout, styling, previews, and system behavior patterns used in real apps.]]></summary></entry></feed>

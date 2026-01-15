@@ -4,6 +4,7 @@ title: 'Xcode Tutorial: All about creating a project with Xcode'
 description: All about creating a project with Xcode.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-welcome-window.png
 date: Jan 06, 2026
+tags: general, xcode
 ---
 
 # All About Creating a Project With Xcode

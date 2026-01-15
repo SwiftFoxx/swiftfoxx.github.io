@@ -4,6 +4,7 @@ title: 'Xcode Tutorial: How To Preview anything With Preview Canvas'
 description: Previewing with Xcode
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png
 date: Jan 8, 2026
+tags: swiftui, xcode, tutorial
 ---
 
 # The Magical 'Preview' Canvas
