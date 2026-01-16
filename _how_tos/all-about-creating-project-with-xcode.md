@@ -148,6 +148,6 @@ Let's now get to know the fields one by one, shall we?
     <div>Enables CloudKit support for syncing app data across devices.</div>
 </div>
 
-{: .empty5}
+{: .mt-3 }
 
 here is the introduction to creating projects with Xcode. We can't wait to see what great apps you create. 🍀
