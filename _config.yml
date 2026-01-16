@@ -41,3 +41,6 @@ exclude:
   - README.md
   - node_modules
   - vendor
+
+# Github token
+github_read_token: <ENV % GITHUB_READ_TOKEN %>

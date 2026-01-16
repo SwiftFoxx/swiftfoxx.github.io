@@ -5,6 +5,7 @@ description: A collection of practical, everyday SwiftUI how-tos covering common
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/everyday.how.to.cover.png
 date: Jan 05, 2026
 tags: general
+discussion: 1
 ---
 
 # Everyday SwiftUI How-To's
