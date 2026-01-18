@@ -4,6 +4,7 @@ title: 'SwiftUI Tutorial: Section Finale! Let''s Build A Settings Scene'
 description: Section Finale! Let's Build A Settings Scene.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/settings-scene.png
 date: Jan 14, 2026
+revision: Jan 18, 2026
 tags: tutorial, app tutorial
 ---
 
@@ -62,10 +63,6 @@ struct settingssceneApp: App {
 
 The conditional compilation here allows the same SettingsView to work naturally across platforms. On macOS, the settings live inside a dedicated window with a title, which feels right in a desktop environment. On iOS and iPadOS, the same view is embedded inside a WindowGroup.
 
-<!-- At this stage of development, a screenshot would show a completely empty navigation container—no rows, no sections, just a blank settings shell. -->
-
-<!-- Screenshot note: Capture the very first render of SettingsView inside a window or simulator, before any content is added. -->
-
 ### The Core Container: SettingsView
 
 With the entry point sorted, the next thing we want to focus on is the container that will hold everything else. This is where `SettingsView.swift`{: .inline-code } comes in.
@@ -88,8 +85,14 @@ struct SettingsView: View {
 
 The navigation stack, and title are in place, the list styling is system-native, and the screen feels immediately familiar. This is intentional. A settings scene should feel correct long before it feels complete.
 
-
-<!-- Screenshot note: This is a good place to show the first “real” UI—an empty settings list with a navigation title in place. -->
+{% include image-carousel.html
+id="ss-init"
+  images="
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/ss.ios.1.png,
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/ss.mac.1.png
+  "
+  caption="Settings list with a navigation title"
+ %}
 
 ### Creating first component: *SettingRow*
 
@@ -162,9 +165,16 @@ This reads cleanly, almost like a sentence. The view doesn’t care what `Appear
 
 This separation becomes more important as the settings screen grows.
 
-<!-- Screenshot note: Capture the first visible section with a single populated row. -->
-
 #### AppearanceMenu
+
+{% include image-carousel.html
+id="ss-init"
+  images="
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/ss.ios.2.png,
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/ss.mac.2.png
+  "
+  caption="Settings list with menu expanded"
+ %}
 
 `AppearanceMenu`{: .inline-code } itself follows the same philosophy. Instead of pushing users into a new screen just to select a preference, the menu lives inline, anchored to the trailing edge of the row.
 
@@ -195,8 +205,6 @@ struct AppearanceMenu: View {
 ```
 
 The important part here isn’t the menu itself, but where it lives. By keeping it inline, the user never loses context. The settings screen remains scannable, calm, and predictable.
-
-<!-- Screenshot note: Show the appearance menu expanded. -->
 
 #### ColorPickerMenu, And AdsPicker
 
@@ -293,9 +301,18 @@ struct PersonView<D: View>: View {
 
 This view is responsible for displaying the image and the name of the user and provide a way for navigating to *account details*.
 
-<!-- Screenshot note: Capture the full settings screen with PersonView clearly visible at the top. -->
-
 ### Next Stop — Add Features Grouped By Relevance
+
+{% include image-carousel.html
+id="ss-init"
+  images="
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/settings-light.png,
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/settings-dark.png,
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/settings-mac-light.png,
+    https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings/settings-mac-dark.png
+  "
+  caption="Settings form in different color schemes"
+ %}
 
 Now the next thing that becomes obvious is repetition. Several rows follow the same pattern: a title on the leading side, a compact control on the trailing side, and no navigation in between.
 
@@ -317,8 +334,6 @@ SettingRow("Accent Color") {
 
 This keeps the mental model intact. The user is still “in settings,” not temporarily somewhere else. The control adapts to the screen, not the other way around.
 
-<!-- Screenshot note: Show the color picker embedded inside the settings row. -->
-
 `AdsPicker`{: .inline-code } introduces a slightly different kind of setting. Unlike appearance or color, this choice isn’t purely aesthetic. It’s closer to policy than personalization.
 
 Even so, it uses the same structure.
@@ -330,8 +345,6 @@ SettingRow("Personalized Ads") {
 ```
 
 There’s no visual escalation here. No warning styling. No modal confirmation. The settings screen treats it as just another decision the user can make, and that restraint is important. The UI stays emotionally flat, even when the setting itself carries weight.
-
-<!-- Screenshot note: Capture the full settings screen showing the profile row followed by sections. -->
 
 ### Final Thoughts
 
