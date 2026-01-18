@@ -47,8 +47,8 @@ figcaption {
     flex-direction: column;
     padding: 2em;
 
-    overflow-y: auto;
-    overscroll-behavior: contain;
+    /* overflow-y: auto;
+    overscroll-behavior: contain; */
 
     & div {
         font-family:
@@ -123,9 +123,9 @@ figcaption {
     margin: 1.5rem 0;
     padding: 1.5rem 1rem 0;
 
-    max-height: 100%;
+    /* max-height: 100%;
     overflow-y: auto;
-    overscroll-behavior: contain;
+    overscroll-behavior: contain; */
 
     & p {
         margin: 0;
@@ -320,6 +320,22 @@ figcaption {
     }
 }
 
+/* Github Gist */
+.gist {
+    margin-top: 1rem;
+
+    &::before {
+        content: 'gist';
+        margin: 2.8rem;
+
+        font-family: 'MD IO', monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+
+        color: var(--secondary-text);
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --quote-border-color: #626265;
@@ -377,4 +393,62 @@ figcaption {
         overflow: visible;
         overscroll-behavior: auto;
     }
+}
+
+.link-preview {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
+  border-radius: 14px;
+  overflow: hidden;
+
+  background: color-mix(in oklab, canvas 92%, black);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.12);
+  }
+
+  &:focus-visible {
+    outline: 3px solid Highlight;
+    outline-offset: 3px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  &__meta {
+    display: grid;
+    gap: 6px;
+  }
+
+  &__domain {
+    font-size: 0.75rem;
+    color: gray;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  &__title {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  &__description {
+    font-size: 0.9rem;
+    color: color-mix(in oklab, canvas 60%, black);
+  }
 }
