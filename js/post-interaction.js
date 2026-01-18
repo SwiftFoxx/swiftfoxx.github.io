@@ -1,6 +1,6 @@
 const token = document.currentScript.dataset.token
 
-const discussionNumber = 1//document.currentScript.dataset.discussion
+const discussionNumber = document.currentScript.dataset.discussion
 
 const query = `
 query {
@@ -82,12 +82,32 @@ function renderComments(discussion) {
             el.className = "comment"
 
             el.innerHTML = `
-            <header>
-            <img src="${comment.author.avatarURL}" alt="">
-            <strong>${comment.author.login}</strong>
-            </header>
-            <p>${comment.body}</p>
+            <div class="comment-container">
+                <div class="author-identity">
+                    <img class="avatar-img" src="${comment.author.avatarUrl}" alt="">
+                    <div class="comment-name">${comment.author.login} <span class="comment-ts">${timeAgo(comment.createdAt)}<span></div>
+                </div>
+                <p>${comment.body}</p>
+                <div class="replies"></div>
+            </div>
             `
+
+            const repliesContainer = el.querySelector(".replies")
+
+            comment.replies.nodes.forEach(reply => {
+                const replyEl = document.createElement("div")
+                replyEl.className = "reply"
+
+                replyEl.innerHTML = `
+                <div class="author-identity">
+                    <img class="avatar-img" src="${reply.author.avatarUrl}" alt="">
+                    <strong>${reply.author.login}</strong>
+                </div>
+                <p>${reply.body}</p>
+        `
+
+                repliesContainer.appendChild(replyEl)
+            })
 
             container.appendChild(el)
         })
@@ -96,6 +116,8 @@ function renderComments(discussion) {
     document.querySelector(".trailing-rail").appendChild(container)
     renderComposer(discussion.id)
 }
+
+const API_BASE = "https://comments.swiftfoxx.workers.dev"
 
 function renderComposer(discussionId) {
     const form = document.createElement("form")
@@ -109,7 +131,7 @@ function renderComposer(discussionId) {
 
         const body = form.querySelector("textarea").value
 
-        await fetch("/api/comment", {
+        await fetch(`${API_BASE}/api/comment`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -119,12 +141,30 @@ function renderComposer(discussionId) {
                 body
             })
         })
-            .then((e) => {
-
+            .then((data) => {
+                console.log("Send", JSON.stringify(data))
             })
 
-        location.reload()
+        // location.reload()
     }
 
     document.querySelector("#comments").prepend(form)
+}
+
+function timeAgo(isoString) {
+    const then = new Date(isoString).getTime()
+    const now = Date.now()
+
+    const diff = Math.floor((now - then) / 1000) // seconds
+
+    if (diff < 60) return `${diff}s ago`
+
+    const minutes = Math.floor(diff / 60)
+    if (minutes < 60) return `${minutes}m ago`
+
+    const hours = Math.floor(minutes / 60)
+    if (hours < 24) return `${hours}h ago`
+
+    const days = Math.floor(hours / 24)
+    return `${days}d ago`
 }
