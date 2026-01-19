@@ -4,10 +4,10 @@
    Posts
    ========================================================================== */
 :root {
-    --primary: rgba(0, 0, 0, 0.85);
-    --secondary: rgba(0, 0, 0, 0.50);
-    --tertiary: rgba(0, 0, 0, 0.25);
-    --quaternary: rgba(0, 0, 0, 0.10);
+    --primary: hsl(0, 0%, 0%, 0.85);
+    --secondary: hsl(0, 0%, 0%, 0.5);
+    --tertiary: hsl(0, 0%, 0%, 0.25);
+    --quaternary: hsl(0, 0%, 0%, 0.1);
 }
 
 .posts-grid {
@@ -23,24 +23,31 @@
     background: transparent;
     transition: transform .2s;
     border: 0.02rem solid var(--tertiary);
-}
 
-.post-card h3 {
-    font-family: 'MD IO';
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--secondary);
-}
+    & h3 {
+        display: -webkit-box;
+        line-clamp: 1;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
 
-.post-card a {
-    text-decoration: none;
-}
+        font-family: 'MD IO';
+        font-size: 2rem;
+        font-weight: 700;
 
-.post-card p {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--primary);
-    font-size: 0.9rem;
+        color: var(--secondary);
+    }
+
+    & a {
+        text-decoration: none;
+    }
+
+    & p {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont,
+            "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--primary);
+        font-size: 0.9rem;
+    }
 }
 
 .date-p {
@@ -64,10 +71,10 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary: rgba(255, 255, 255, 0.85);
-        --secondary: rgba(255, 255, 255, 0.55);
-        --tertiary: rgba(255, 255, 255, 0.25);
-        --quaternary: rgba(255, 255, 255, 0.10);
+        --primary: hsl(0, 0%, 100%);
+        --secondary: hsl(0, 0%, 100%, 0.55);
+        --tertiary: hsl(0, 0%, 100%, 0.25);
+        --quaternary: hsl(0, 0%, 100%, 0.1);
     }
 }
 

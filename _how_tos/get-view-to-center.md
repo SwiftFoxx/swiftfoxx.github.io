@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'SwiftUI Tutorial: Get Any View To The Center'
+display_title: Get Any View To The Center
+hashtag: SwiftUI
 description: Centering views in SwiftUI sounds trivial until it isn’t. This article breaks down how layout, stacks, spacers, frames, and alignment guides actually work when you want something truly centered.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/view.center.cover.png
 date: Jan 10, 2026
 tags: swiftui, tutorial
+keywords: center view swiftui, swiftui layout centering, swiftui spacer centering, frame alignment swiftui, zstack centering, geometryreader centering, swiftui layout system
 ---
-
-# Get Any View To The Center
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
 
 ![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/view.center.cover.png){: .cover-image }
 

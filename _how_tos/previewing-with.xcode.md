@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'Xcode Tutorial: How To Preview anything With Preview Canvas'
+display_title: The Magical 'Preview' Canvas
+hashtag: Xcode
 description: Previewing with Xcode
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png
 date: Jan 8, 2026
 tags: swiftui, xcode, tutorial
+keywords: xcode preview canvas, swiftui preview macro, preview dynamic type, xcode preview performance, swiftui preview states, preview multiple devices, xcode swiftui workflow
 ---
-
-# The Magical 'Preview' Canvas
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">Xcode</span></p>
 
 <figure>
     <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-preview-mockup.png" alt="Xcode Preview">

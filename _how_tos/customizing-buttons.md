@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'SwiftUI Tutorial: How To Customize Buttons'
+display_title: Buttons, Did You Say?
+hashtag: SwiftUI
 description: Almost no designer uses the default button styles that Apple gives us and it takes ages to figure out the whats and hows. Let's get into buttons and actions.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/buttons.cover.png
 date: Jan 10, 2026
 tags: swiftui, tutorial
+keywords: swiftui buttons, customize button swiftui, buttonstyle swiftui, swiftui button roles, swiftui accessibility buttons, ios macos buttons, swiftui ui controls
 ---
-
-# Buttons, Did You Say?
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
 
 ![Divider Symbolic Image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/buttons.cover.png){: .cover-image }
 

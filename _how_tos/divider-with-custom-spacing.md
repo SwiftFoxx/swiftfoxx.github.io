@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'SwiftUI  Tutorial: How To Add A Divider With Custom Spacing'
+display_title: How To Add A Divider With Custom Spacing
+hashtag: SwiftUI
 description: How to customize a divider — horizontal or vertical — in SwiftUI
 og-image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/divider.cover.png
 date: Jan 11, 2026
 tags: swiftui, tutorial
+keywords: swiftui divider, custom divider spacing swiftui, swiftui layout spacing, divider padding swiftui, vertical divider swiftui, swiftui list divider, swiftui ui separation
 ---
-
-# How To Add A Divider With Custom Spacing
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
 
 ![Divider Symbolic Image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/divider.cover.png){: .cover-image }
 

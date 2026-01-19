@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'SwiftUI Tutorial: How To Support Dark Mode Properly'
+display_title: How To Support Dark Mode Properly in SwiftUI
+hashtag: SwiftUI
 description: How To Support Dark Mode Properly
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/dark.mode.cover.png
 date: Jan 13, 2026
 tags: swiftui, tutorial
+keywords: swiftui dark mode, ios dark mode support, adaptive colors swiftui, semantic colors swiftui, dark mode accessibility ios, swiftui materials, appearance aware ui
 ---
-
-# How To Support Dark Mode Properly in SwiftUI
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
 
 ![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/dark.mode.cover.png){: .cover-image }
 

@@ -188,9 +188,9 @@ figcaption {
 .inline-code {
     font-family: "MD IO";
     font-size: 0.8rem;
-    font-weight: 500;
+    font-weight: 300;
     color: inherit;
-    padding: 2px 8px;
+    padding: 2px 4px;
     background-color: var(--gray-background-50);
     border-radius: 4px;
 }

@@ -3,8 +3,9 @@ layout: post
 title: Actor Isolation And Protocol Conformance Error — Swift 6.2
 description: A deep, practical exploration of actor isolation and protocol conformance in Swift 6.2, covering real-world pitfalls, subtle compiler behaviors, and how to design concurrency-aware APIs without fighting the type system.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/actor.isolation.cover.png
-date: Jan 05, 2026
+date: Jan 15, 2026
 tags: general
+keywords: swift 6.2, actor isolation, protocol conformance, swift concurrency, mainactor, global actor, nonisolated, async protocols, swift actors, data races, swift compiler errors, concurrency migration
 discussion: 1
 ---
 

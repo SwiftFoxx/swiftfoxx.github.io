@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'Swift  Tutorial: Organize Files to Boost Productivity'
+display_title: Organize Your Files To Boost Productivity
+hashtag: Xcode
 description: How to structure Swift & SwiftUI projects for long-term maintainability.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/organize.files.cover.png
 date: Jan 07 2026
 tags: general, tutorial
+keywords: swift project organization, swiftui file structure, xcode project structure, swift architecture patterns, mvvm swiftui, clean architecture swift, modular swift packages, scalable ios projects
 ---
-
-# Organize Your Files To Boost Productivity
-<!-- No way to style plain text, i.e. <p> in md -->
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">projectStructure</span></p>
 
 ![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/organize.files.cover.png){: .cover-image }
 

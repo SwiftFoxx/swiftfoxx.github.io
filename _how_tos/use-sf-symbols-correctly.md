@@ -1,16 +1,15 @@
 ---
 layout: post
 title: 'SwiftUI Tutorial: How To Use SF Symbols Correctly'
+display_title: How To Use SF Symbols Correctly in SwiftUI
+hashtag: SwiftUI
 description: How To Use SF Symbols Correctly
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/sf.symbols.cover.png
 date: Jan 12, 2026
 revision: Jan 13, 2026
 tags: swiftui, tutorial
+keywords: sf symbols swiftui, sf symbols animation, symbol effects swiftui, sf symbols accessibility, symbol rendering modes, dynamic type icons swiftui, ios system icons
 ---
-
-# How To Use SF Symbols Correctly in SwiftUI
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">SwiftUI</span></p>
 
 ![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/sf.symbols.cover.png){: .cover-image }
 
