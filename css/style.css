@@ -47,6 +47,10 @@
     --glass-border: rgba(240, 104, 31, 0.15);
     /* select text color */
     --text-color-select: #F0681F;
+    /* Foreground color for error block */
+    --error-foreground: hsl(1, 81%, 50%);
+    /* Background color for error block */
+    --error-background: hsla(1, 81%, 50%, 0.1);
 }
 
 *,
@@ -248,7 +252,7 @@ button:disabled {
 }
 
 .navigation {
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 100;
     display: flex;
@@ -296,7 +300,8 @@ button:disabled {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+
+    min-height: 90vh;
 }
 
 .hero {
@@ -406,6 +411,31 @@ button:disabled {
     background-color: yellow;
 }
 
+.error {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    padding: 1rem 1.4rem;
+    border-radius: 12px;
+
+    background: var(--error-background);
+    color: var(--error-foreground);
+    font-weight: 300;
+
+    &::before {
+        content: "";
+        flex: 0 0 1.25rem;
+
+        width: 1.25rem;
+        height: 1.25rem;
+        margin-top: 0.2rem;
+
+        background: var(--error-foreground);
+        mask: url("/Resources/svg/exclamationmark.circle.fill.svg") no-repeat center / contain;
+    }
+}
+
 /* ==========================================================================
    Accessibility
    ========================================================================== */
@@ -427,6 +457,10 @@ button:disabled {
         --glass-border: rgba(203, 109, 58, 0.35);
         /* select text color */
         --text-color-select: #CB6D3A;
+        /* Foreground color for error block */
+        --error-foreground: hsl(1, 100%, 57%);
+        /* Background color for error block */
+        --error-background: hsl(1, 68%, 53%, 0.25);
     }
 
     body {
