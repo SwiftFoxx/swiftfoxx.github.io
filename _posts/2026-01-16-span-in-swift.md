@@ -2,6 +2,7 @@
 layout: post
 title: What is Span in Swift?
 display_title: Span in Swift
+hashtag: Swift
 description: A deep dive into Span in Swift. What it is, why it exists, when to use it, and how it enables safer, more honest, and more performant APIs without copying or unsafe pointers.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/actor.isolation.cover.png
 date: Jan 16, 2026
