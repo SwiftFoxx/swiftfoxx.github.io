@@ -1,18 +1,17 @@
 ---
 layout: post
 title: 'SwiftUI Tutorial: Section Finale! Let''s Build A Settings Scene'
+display_title: Section Finale!
+hashtag: Tutorial
 description: Section Finale! Let's Build A Settings Scene.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/settings-scene.png
 date: Jan 14, 2026
 revision: Jan 18, 2026
 tags: tutorial, app tutorial
+keywords: swiftui settings screen, build settings scene swiftui, swiftui list navigation, reusable swiftui views, settings ui ios macos, swiftui app architecture, settings view tutorial
 ---
 
-# Section Finale!
-
 ## Let's Build A Settings Scene
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">App Tutorial</span></p>
 
 <figure>
     <img src="https://swiftfoxx.github.io/swiftblog-assets/images/posts/settings-scene.png" alt="Xcode Welcome Screen">

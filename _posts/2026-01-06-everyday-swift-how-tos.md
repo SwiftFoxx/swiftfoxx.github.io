@@ -1,16 +1,15 @@
 ---
 layout: post
 title: Everyday SwiftUI How-To's
+display_title: Everyday SwiftUI How-To's
+hashtag: General
 description: A collection of practical, everyday SwiftUI how-tos covering common layout, styling, previews, and system behavior patterns used in real apps.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/everyday.how.to.cover.png
 date: Jan 05, 2026
 tags: general
+keywords: swiftui how tos, swiftui basics, everyday swiftui, swiftui layout, swiftui styling, xcode previews, sf symbols, dark mode swiftui, reusable views, ios ui patterns, swiftui tips, ios development
 discussion: 1
 ---
-
-# Everyday SwiftUI How-To's
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">General</span></p>
 
 The job of a developer or an engineer is not to write code. The job is to solve problems.
 {: .quote }

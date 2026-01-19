@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'Swift Tutorial: How Many Ways Are There To Make A Chunk Of Code Reusable'
+display_title: How Many Ways Are There To Make A Chunk Of Code Reusable
+hashtag: Swift
 description: A comprehensive guide to code reusability in Swift, covering functions, types, protocols, generics, composition, and modular design with real examples.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/reusable.code.cover.png
 date: Jan 9, 2026
 tags: general, development, swift
+keywords: swift code reusability, reusable code swift, swift protocols generics, swift composition patterns, modular swift design, swift architecture patterns, scalable swift code
 ---
-
-# How Many Ways Are There To Make A Chunk Of Code Reusable
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">swift</span></p>
 
 ![cover image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/reusable.code.cover.png){: .cover-image }
 

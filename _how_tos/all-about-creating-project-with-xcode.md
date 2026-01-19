@@ -1,15 +1,14 @@
 ---
 layout: post
 title: 'Xcode Tutorial: All about creating a project with Xcode'
+display_title: All About Creating a Project With Xcode
+hashtag: Xcode
 description: All about creating a project with Xcode.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/xcode-welcome-window.png
 date: Jan 06, 2026
 tags: general, xcode
+keywords: xcode tutorial, create xcode project, ios project setup, swiftui project template, xcode project configuration, bundle identifier, apple developer account, xcode basics, ios app creation
 ---
-
-# All About Creating a Project With Xcode
-<!-- No way to style plain text, i.e. <p> in md -->
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">xcode</span></p>
 
 The article walks through every single step involved in creating a new project with Xcode, explains why each option exists, and what choices actually matter in real-world development.
 
