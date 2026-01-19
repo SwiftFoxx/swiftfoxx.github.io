@@ -52,12 +52,12 @@
 <body>
   {% include nav.html %}
   <div class="main-container">
-    <aside class="leading-rail">
+    <aside class="leading-rail"  tabindex="0">
     </aside>
-    <div class="wrapper">
+    <div class="wrapper" tabindex="0">
       {{ content }}
     </div>
-    <aside class="trailing-rail">
+    <aside class="trailing-rail" tabindex="0">
       <p><b>Published</b></p>
       <p> {{ page.date | date: "%b %d, %Y" }}</p>
       {% assign revision = page.revision %}
