@@ -72,10 +72,6 @@ figcaption {
         max-width: 80%;
     }
 
-    & p:is(:last-child) {
-        padding-block-end: 2rem;
-    }
-
     & .inline-link {
         display: inline-flex;
         color: white;
@@ -86,7 +82,7 @@ figcaption {
         font-weight: 600;
         text-transform: uppercase;
         text-decoration: none;
-        transform: translateY(-2px);
+        transform: translateY(-4px);
     }
 
     .quote {

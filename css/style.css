@@ -51,6 +51,10 @@
     --error-foreground: hsl(1, 81%, 50%);
     /* Background color for error block */
     --error-background: hsla(1, 81%, 50%, 0.1);
+    /* Background color for note block */
+    --note-background: rgb(234, 237, 241);
+    /* Foreground color for note block */
+    --note-foreground: hsl(0 0 0);
 }
 
 *,
@@ -114,7 +118,7 @@ p {
     opacity: 0.9;
 
     font-size: 0.99rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.65;
 }
 
@@ -144,6 +148,7 @@ pre {
 a {
     color: #F0681F;
     text-decoration: none;
+    cursor: pointer;
 }
 
 a:hover,
@@ -406,11 +411,18 @@ button:disabled {
 }
 
 .note {
-    padding: 0 2rem;
+    display: block;
+
+    padding: 0.8rem;
 
     border: 0;
     border-radius: 1rem;
-    background-color: yellow;
+
+    background-color: var(--note-background);
+    color: var(--note-foreground);
+
+    font-size: 0.8rem;
+    font-weight: 400;
 }
 
 .error {
@@ -463,6 +475,10 @@ button:disabled {
         --error-foreground: hsl(1, 100%, 57%);
         /* Background color for error block */
         --error-background: hsl(1, 68%, 53%, 0.25);
+        /* Background color for note block */
+        --note-background: rgb(40, 41, 43);
+        /* Foreground color for note block */
+        --note-foreground: hsl(0, 0%, 100%);
     }
 
     body {
