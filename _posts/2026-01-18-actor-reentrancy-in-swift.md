@@ -6,6 +6,7 @@ hashtag: Swift
 description: A deep, practical exploration of actor reentrancy in Swift Concurrency, explaining how awaits affect actor isolation, why subtle bugs occur, and how to structure actor code safely.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/actor.reentrancy.png
 date: Jan 18, 2026
+revision: Jan 21, 2026
 tags: swift
 keywords: swift span, span element swift, swift 6 ownership, borrowing in swift, swift memory management, unsafe buffer pointer, contiguous memory swift, swift performance, swift systems programming, non owning views swift, swift arrays vs span
 discussion: 1
@@ -33,7 +34,7 @@ actor Counter {
 
     func increment() async {
         let current = value
-        await Task.sleep(nanoseconds: 100_000_000)
+        try? await Task.sleep(nanoseconds: 100_000_000)
         value = current + 1
     }
 }
@@ -72,7 +73,7 @@ actor BankAccount {
     }
 
     private func authorize(_ amount: Int) async {
-        await Task.sleep(nanoseconds: 200_000_000)
+        try? await Task.sleep(nanoseconds: 200_000_000)
     }
 }
 ```
@@ -146,7 +147,7 @@ actor ImageCache {
     }
 
     private func download(_ url: URL) async -> Data {
-        await Task.sleep(nanoseconds: 150_000_000)
+        try? await Task.sleep(nanoseconds: 150_000_000)
         return Data()
     }
 }
@@ -211,7 +212,7 @@ actor ExclusiveActor {
         isExecuting = true
         defer { isExecuting = false }
 
-        await Task.sleep(nanoseconds: 200_000_000)
+        try? await Task.sleep(nanoseconds: 200_000_000)
     }
 }
 ```

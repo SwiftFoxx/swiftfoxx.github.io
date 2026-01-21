@@ -6,6 +6,7 @@ hashtag: SwiftUI
 description: Almost no designer uses the default button styles that Apple gives us and it takes ages to figure out the whats and hows. Let's get into buttons and actions.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/buttons.cover.png
 date: Jan 10, 2026
+revision: Jan 21, 2026
 tags: swiftui, tutorial
 keywords: swiftui buttons, customize button swiftui, buttonstyle swiftui, swiftui button roles, swiftui accessibility buttons, ios macos buttons, swiftui ui controls
 ---
@@ -161,7 +162,7 @@ struct PressableButtonStyle: ButtonStyle {
             .foregroundStyle(.white)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
             .opacity(configuration.isPressed ? 0.8 : 1)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .clipShape(.rect(cornerRadius: 12))
     }
 }
 ```

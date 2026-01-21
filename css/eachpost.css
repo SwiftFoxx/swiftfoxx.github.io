@@ -35,9 +35,6 @@ figcaption {
 }
 
 .main-container {
-    /* display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    height: 100dvh; */
     display: flex;
     max-width: 98dvw;
 
@@ -107,8 +104,6 @@ figcaption {
 .leading-rail {
     max-height: 100%;
     width: 16%;
-    overflow-y: auto;
-    overscroll-behavior: contain;
 
     position: fixed;
     top: 64px;
@@ -121,8 +116,6 @@ figcaption {
 
     max-height: 100%;
     width: 16%;
-    overflow-y: auto;
-    overscroll-behavior: contain;
 
     position: fixed;
     top: 64px;
