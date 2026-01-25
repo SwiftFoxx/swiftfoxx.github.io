@@ -1,17 +1,16 @@
 ---
 layout: post
 title: Actor Isolation And Protocol Conformance Error — Swift 6.2
+display_title: Actor Isolation And Protocol Conformance Error — Swift 6.2
+hashtag: Swift
 description: A deep, practical exploration of actor isolation and protocol conformance in Swift 6.2, covering real-world pitfalls, subtle compiler behaviors, and how to design concurrency-aware APIs without fighting the type system.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/actor.isolation.cover.png
 date: Jan 15, 2026
+revision: Jan 22, 2026
 tags: general
 keywords: swift 6.2, actor isolation, protocol conformance, swift concurrency, mainactor, global actor, nonisolated, async protocols, swift actors, data races, swift compiler errors, concurrency migration
 discussion: 1
 ---
-
-# Actor Isolation And Protocol Conformance Error — Swift 6.2
-
-<p>{{ page.date | date: "%b %d, %Y" }} <span class="hashtag">General</span></p>
 
 ![Cover Image](https://swiftfoxx.github.io/swiftblog-assets/images/posts/Cover%20Images/actor.isolation.cover.png){: .cover-image }
 
@@ -23,7 +22,7 @@ Main actor-isolated instance method cannot be used to satisfy a nonisolated prot
 Actor-isolated property or method cannot satisfy nonisolated protocol requirement  
 {: .error }
 
-These errors often look surprising because they show up in places where previously Swift would either let the code compile or only emit a warning. Now, Swift refuses to let a mismatched contract slip through silently, and that’s ultimately a good thing — it pushes you to make your API and concurrency contracts explicit. At the heart of the issue is this: a protocol requirement without any isolation annotation is considered *nonisolated*. That means callers can invoke it without crossing any executor boundaries. An actor, or a global actor annotation like `@MainActor`, *does* introduce an executor boundary. When these collide, the compiler will stop you early and force you to clarify intent.  [Swift.org](https://www.swift.org/migration/documentation/swift-6-concurrency-migration-guide/commonproblems)
+These errors often look surprising because they show up in places where previously Swift would either let the code compile or only emit a warning. Now, Swift refuses to let a mismatched contract slip through silently, and that’s ultimately a good thing — it pushes you to make your API and concurrency contracts explicit. At the heart of the issue is this: a protocol requirement without any isolation annotation is considered *nonisolated*. That means callers can invoke it without crossing any executor boundaries. An actor, or a global actor annotation like `@MainActor`, *does* introduce an executor boundary. When these collide, the compiler will stop you early and force you to clarify intent.  [Swift.org](https://www.swift.org/migration/documentation/swift-6-concurrency-migration-guide/commonproblems){: .inline-link }
 
 ## What “Protocol Shape Vs Isolation” Really Means
 

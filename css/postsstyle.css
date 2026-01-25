@@ -8,6 +8,7 @@
     --secondary: hsl(0, 0%, 0%, 0.5);
     --tertiary: hsl(0, 0%, 0%, 0.25);
     --quaternary: hsl(0, 0%, 0%, 0.1);
+    --quinary: hsl(0, 0%, 0%, 0.04);
 }
 
 .posts-grid {
@@ -26,13 +27,15 @@
 
     & h3 {
         display: -webkit-box;
-        line-clamp: 1;
-        -webkit-line-clamp: 1;
+        line-clamp: 2;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
 
+        height: 40%;
+
         font-family: 'MD IO';
-        font-size: 2rem;
+        font-size: 1.7rem;
         font-weight: 700;
 
         color: var(--secondary);
@@ -43,6 +46,8 @@
     }
 
     & p {
+        height: 38%;
+
         font-family: system-ui, -apple-system, BlinkMacSystemFont,
             "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         color: var(--primary);
@@ -65,8 +70,9 @@
 }
 
 .post-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
     text-decoration: none;
+    box-shadow: 0 1em 2em hsl(0, 0%, 0%, 0.04);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -75,6 +81,7 @@
         --secondary: hsl(0, 0%, 100%, 0.55);
         --tertiary: hsl(0, 0%, 100%, 0.25);
         --quaternary: hsl(0, 0%, 100%, 0.1);
+        --quinary: hsl(0, 0%, 100%, 0.04);
     }
 }
 
