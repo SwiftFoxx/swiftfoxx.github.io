@@ -12,6 +12,14 @@
 
 @font-face {
     font-family: 'MD IO';
+    src: url(/Resources/Fonts/mdio/MDIO-Medium.ttf) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MD IO';
     src: url(/Resources/Fonts/mdio/MDIO-Bold.ttf) format('truetype');
     font-weight: 700;
     font-style: normal;
@@ -482,8 +490,8 @@ button:disabled {
     }
 
     body {
-        background-color: #09090a;
-        color: #ffffff;
+        background-color: hsl(240, 8%, 8%);
+        color: hsl(0, 0%, 100%);
     }
 
     a {
