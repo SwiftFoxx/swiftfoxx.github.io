@@ -3,11 +3,10 @@ layout: post
 title: Explore Lazy in Swift Collections
 display_title: Explore Lazy in Swift Collections
 hashtag: Swift
-description: Explore Lazy in Swift Collections
-# og_image: ''
+description: A deep dive into lazy evaluation in Swift collections, explaining how lazy sequences and collections work, when they improve performance, where they can surprise you, and how to use them effectively in real-world Swift code.
 date: Jan 20, 2026
-tags: swift
-keywords: swift
+tags: swift, collections, performance, lazy
+keywords: swift lazy, lazy collections swift, lazy sequences swift, swift collection performance, map filter lazy swift, swift standard library lazy, lazy evaluation swift, swift arrays lazy
 ---
 
 Working with Swift collections often means chaining operations like `map`{: .inline-code }, `filter`{: .inline-code }, `compactMap`{: .inline-code }, etc. By default, these are eager: they do all the work immediately and return a fully materialized result. But Swift also supports *lazy* evaluation for sequences and collections, letting you defer work until it’s actually needed — lowering work and memory use in the right cases. [Apple Developer](https://developer.apple.com/documentation/swift/sequence/lazy?utm_source={{ site.url }}){: .inline-link }
