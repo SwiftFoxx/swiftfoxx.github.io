@@ -6,6 +6,7 @@ hashtag: swift
 description: Build and run a local HTTP server in Swift using an executable package, covering low-level networking, basic HTTP parsing, routing, and user management.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/local.server.cover.png
 date: Jan 21, 2026
+revision: Jan 28, 2026
 tags: swift, server, xcode
 keywords: swift, server, dev server, local server, swift server, local server in swift
 ---
