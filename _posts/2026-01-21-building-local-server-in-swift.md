@@ -3,9 +3,10 @@ layout: post
 title: Swift — How To Build And Run A Local Server Using Swift
 display_title: Build And Run Local Server With Swift
 hashtag: swift
-description: Server in swift
+description: Build and run a local HTTP server in Swift using an executable package, covering low-level networking, basic HTTP parsing, routing, and user management.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/local.server.cover.png
 date: Jan 21, 2026
+revision: Jan 28, 2026
 tags: swift, server, xcode
 keywords: swift, server, dev server, local server, swift server, local server in swift
 ---
@@ -343,4 +344,221 @@ You can find the complete project (following this article) here [SwiftLocalServe
 
 ---
 
-**3rd Party Libraries coming up**
+## Using Other Libraries
+
+Using 3rd party libraries, such as Vapor, takes away the hassle to create and maintain your own code for the server and the give us a more 'readable' way to defining routes. But that makes debugging harder, and you have no control over how the server behaves. [Vapor](https://vapor.codes){: .inline-link }
+
+### Adding Dependencies
+
+The way you can use a 3rd party library is by adding them as dependencies. It's different from adding a dependency to an app. We need to update the `Package.swift`{: .inline-link } in order for Xcode to recognize and install the dependencies.
+
+Open Package.swift in Xcode. Each server framework you use gets added as a dependency in `Package.swift`{: .inline-code }. Here’s the general pattern:
+
+```swift
+// swift-tools-version:5.6
+import PackageDescription
+
+let package = Package(
+    name: "SwiftLocalServer",
+    platforms: [
+        .macOS(.v12)
+    ],
+    dependencies: [
+        // Dependencies will go here
+    ],
+    targets: [
+        .executableTarget(
+            name: "SwiftLocalServer",
+            dependencies: []),
+        .testTarget(
+            name: "SwiftLocalServerTests",
+            dependencies: ["SwiftServer"]),
+    ]
+)
+```
+
+You’ll modify the `dependencies`{: .inline-code } array and target dependencies for each library below.
+
+### Vapor
+
+Vapor is one of the most popular Swift server frameworks and lets you write routes, middleware, and JSON APIs in a Swift idiomatic way.
+
+#### Step 1: Add Vapor to Dependencies
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0")
+],
+targets: [
+    .executableTarget(
+        name: "SwiftServer",
+        dependencies: [
+            .product(name: "Vapor", package: "vapor")
+        ])
+]
+```
+
+Save the file and run:
+
+```bash
+swift build
+```
+
+#### Step 2: Write a Vapor Server
+
+Update main.swift with:
+
+```swift
+import Vapor
+
+var env = try Environment.detect()
+let app = Application(env)
+defer { app.shutdown() }
+
+// Define a basic route
+app.get("hello") { req -> String in
+    return "Hello from Vapor!"
+}
+
+try app.run()
+```
+
+This tells Vapor to start a server and respond on `/hello`{: .inline-code }.
+
+#### Step 3: Run the Server
+
+```bash
+swift run
+```
+
+Open a browser and visit `http://localhost:8080/hello`{: .inline-code }. You should see the text response.
+
+### Perfect (lightweight Swift server)
+
+Perfect is another Swift-based web server and toolkit for REST services.
+
+#### Step 1: Add Perfect Dependencies
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/PerfectlySoft/Perfect-HTTPServer.git", from: "3.0.0")
+],
+targets: [
+    .executableTarget(
+        name: "SwiftServer",
+        dependencies: [
+            .product(name: "PerfectHTTPServer", package: "Perfect-HTTPServer")
+        ])
+]
+```
+
+Build the package:
+
+```bash
+swift build
+```
+
+#### Step 2: Perfect Server Code
+
+Replace main.swift with:
+
+```swift
+import PerfectHTTP
+import PerfectHTTPServer
+
+// Create a server
+let server = HTTPServer()
+
+// Create a route handler
+var routes = Routes()
+routes.add(method: .get, uri: "/hello") { request, response in
+    response.setBody(string: "Hello from Perfect!")
+    response.completed()
+}
+
+server.addRoutes(routes)
+server.serverPort = 8080
+
+do {
+    try server.start()
+} catch {
+    print("Error starting Perfect server: \(error)")
+}
+```
+
+Run it:
+
+```bash
+swift run
+```
+
+Open a browser and visit `http://localhost:8080/hello`{: .inline-code }.
+
+### Kitura (community-maintained, but historically a Swift server option)
+
+Kitura was an IBM-backed Swift server framework for REST APIs and routing. While no longer in active development, it still works for learning purposes.
+
+#### Step 1: Add Kitura
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Kitura/Kitura.git", from: "2.9.0")
+],
+targets: [
+    .executableTarget(
+        name: "SwiftServer",
+        dependencies: [
+            .product(name: "Kitura", package: "Kitura")
+        ])
+]
+```
+
+Build the package:
+
+```bash
+swift build
+```
+
+#### Step 2: Basic Kitura Server
+
+Replace main.swift with:
+
+```swift
+import Kitura
+
+let router = Router()
+
+router.get("/hello") { request, response, next in
+    response.send("Hello from Kitura!")
+    next()
+}
+
+Kitura.addHTTPServer(onPort: 8080, with: router)
+Kitura.run()
+```
+
+Run:
+
+```bash
+swift run
+```
+
+Open a browser and visit `http://localhost:8080/hello`{: .inline-code }.
+
+## Testing Your Local Server
+
+After running any of these servers, open a browser or send a request with curl:
+
+```bash
+curl http://localhost:8080/hello
+```
+
+You should see the string response you defined.
+
+As you expand beyond a simple route, each library lets you add JSON APIs, database integration, templating and middleware. Vapor’s `Content`{: .inline-code } protocol makes JSON easy, Perfect provides connectors for databases, and even older frameworks like Kitura support routing and middleware stacks.
+
+## Closing Thoughts
+
+Building a local server in Swift follows a consistent pattern regardless of the framework. Swift Package Manager provides a standard way to create executable projects and manage third-party dependencies, which keeps setup and iteration simple. Most server libraries expose similar concepts such as routing, request handling, and response generation, even though their APIs differ.
+
+Using Swift on the server also aligns well with app development workflows. Sharing language, tooling, and mental models between client and server reduces context switching and makes local testing easier. As requirements grow, these same foundations can be extended to support structured APIs, persistence, and deployment without changing the core project setup.
