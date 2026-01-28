@@ -339,36 +339,8 @@ func sendJSON<T: Codable>(_ value: T) {
 
 These build basic HTTP replies from your data types. `sendJSON`{: .inline-code } uses `Codable`{: .inline-code } to convert structs to JSON.
 
-You can find the complete project (following this article) here SwiftLocalServer.
+You can find the complete project (following this article) here [SwiftLocalServer](/downloads/download-local-server/).
 
 ---
 
-## Using 3rd-Party Libraries
-
-### Vapor: A Full-Featured Swift Web Framework
-
-For most real APIs, developers use **Vapor**, the dominant Swift server framework built on SwiftNIO. Vapor lets you define routes, parse JSON, and handle auth without dealing with raw sockets. It’s shipped by an active community and supported as one of the main server options for Swift. [Wikipedia](https://en.wikipedia.org/wiki/Vapor_%28web_framework%29?utm_source=chatgpt.com){: .inline-link }
-
-<!-- Add code for installing the dependency -->
-
-When you create a Vapor project (for example with the Vapor toolbox), you get an application where routes are declared in a clean declarative form. A typical route looks like:
-
-```swift
-app.get("users") { req in
-    return users
-}
-
-app.post("users") { req in
-    let input = try req.content.decode(CreateUser.self)
-    let user = User(id: UUID(), name: input.name, favorite: false)
-    users.append(user)
-    return user
-}
-```
-
-Vapor handles all HTTP parsing, JSON encoding, and response generation for you. It also supports middleware like authentication (including bearer tokens and JWT), content validation, and database integration. [swift.org](https://swift.org/getting-started/vapor-web-server/?utm_source=chatgpt.com){: .inline-link }
-
-For authorization with Vapor, you can build middleware that checks `Authorization`{: .inline-code } headers before letting requests reach your handlers. Vapor’s routing system makes it easy to parameterize URLs (e.g., `/users/:id`{: .inline-code }) and provides typed parameter extraction.
-
-#### Adding Authentication and Persistence
-
+**3rd Party Libraries coming up**
