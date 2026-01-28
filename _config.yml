@@ -17,6 +17,9 @@ collections:
   how_tos:
     output: true
     permalink: /how-tos/:name/
+  downloads:
+    output: true
+    permalink: /downloads/:name/
 
 # Excerpts (matches previous posts.json behavior)
 excerpt_separator: "<!-- more -->"

@@ -1,0 +1,92 @@
+:root {
+    color-scheme: light dark;
+
+    --download-bg: hsl(21, 87%, 53%);
+    --download-bg-hover: hsl(21, 100%, 48%);
+    --border-color: hsl(214, 14%, 90%);
+}
+
+@media(prefers-color-scheme: dark) {
+    :root {
+        --download-bg: hsl(21, 58%, 51%);
+        --download-bg-hover: hsl(21, 87%, 50%);
+        --border-color: hsl(210, 8%, 19%);
+    }
+}
+
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'SST', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.main-container {
+    margin: 0 auto;
+
+    width: 28dvw;
+    height: 100dvh;
+
+    justify-items: center;
+}
+
+.wrapper {
+    height: 90%;
+
+    display: grid;
+    place-items: center;
+    justify-content: center;
+}
+
+.content {
+    max-width: 100%;
+
+    border: 3px solid var(--border-color);
+    border-radius: 48px;
+
+    & p {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    & p:last-child {
+        padding-bottom: 2rem;
+    }
+}
+
+.file-type {
+    width: 100%;
+
+    padding-top: 5rem;
+
+    font-family: 'MD IO', monospace;
+    font-size: 4.5rem;
+
+    border-bottom: 3px solid var(--border-color);
+}
+
+.download-link {
+    display: inline-block;
+
+    width: 100%;
+
+    margin-top: 2rem;
+    padding: 0.75rem 1.25rem;
+
+    border-radius: 16px;
+    background: var(--download-bg);
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    &:hover {
+        text-decoration: none;
+        background: var(--download-bg-hover);
+    }
+}
