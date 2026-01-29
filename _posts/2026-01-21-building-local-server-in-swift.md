@@ -6,7 +6,7 @@ hashtag: swift
 description: Build and run a local HTTP server in Swift using an executable package, covering low-level networking, basic HTTP parsing, routing, and user management.
 og_image: https://swiftfoxx.github.io/swiftblog-assets/images/posts/og-images/local.server.cover.png
 date: Jan 21, 2026
-revision: Jan 28, 2026
+revision: Jan 29, 2026
 tags: swift, server, xcode
 keywords: swift, server, dev server, local server, swift server, local server in swift
 ---
@@ -346,11 +346,11 @@ You can find the complete project (following this article) here [SwiftLocalServe
 
 ## Using Other Libraries
 
-Using 3rd party libraries, such as Vapor, takes away the hassle to create and maintain your own code for the server and the give us a more 'readable' way to defining routes. But that makes debugging harder, and you have no control over how the server behaves. [Vapor](https://vapor.codes){: .inline-link }
+Using 3rd party libraries, such as Vapor, takes away the hassle to create and maintain your own code for the server and the gives us a more 'readable' way to defining routes. But that makes debugging harder, and you have no control over how the server behaves.
 
 ### Adding Dependencies
 
-The way you can use a 3rd party library is by adding them as dependencies. It's different from adding a dependency to an app. We need to update the `Package.swift`{: .inline-link } in order for Xcode to recognize and install the dependencies.
+The way you can use a 3rd party library is by adding them as dependencies. It's different from adding a dependency to an app. We need to update the `Package.swift`{: .inline-code } in order for Xcode to recognize and install the dependencies.
 
 Open Package.swift in Xcode. Each server framework you use gets added as a dependency in `Package.swift`{: .inline-code }. Here’s the general pattern:
 
@@ -372,7 +372,7 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "SwiftLocalServerTests",
-            dependencies: ["SwiftServer"]),
+            dependencies: ["SwiftLocalServer"]),
     ]
 )
 ```
@@ -391,7 +391,7 @@ dependencies: [
 ],
 targets: [
     .executableTarget(
-        name: "SwiftServer",
+        name: "SwiftLocalServer",
         dependencies: [
             .product(name: "Vapor", package: "vapor")
         ])
@@ -445,7 +445,7 @@ dependencies: [
 ],
 targets: [
     .executableTarget(
-        name: "SwiftServer",
+        name: "SwiftLocalServer",
         dependencies: [
             .product(name: "PerfectHTTPServer", package: "Perfect-HTTPServer")
         ])
@@ -506,7 +506,7 @@ dependencies: [
 ],
 targets: [
     .executableTarget(
-        name: "SwiftServer",
+        name: "SwiftLocalServer",
         dependencies: [
             .product(name: "Kitura", package: "Kitura")
         ])
