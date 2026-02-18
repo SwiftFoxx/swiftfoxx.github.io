@@ -330,6 +330,21 @@ button:disabled {
     opacity: var(--hero-opacity);
 }
 
+.popped {
+    display: block;
+    position: absolute;
+    max-width: 60%;
+    
+    margin: 0 30%;
+    padding: 0.8rem 2rem;
+
+    font-size: 0.8rem;
+
+    background-color: rgba(177, 125, 74, 0.227);
+    border: 0;
+    border-radius: 1rem;
+}
+
 .before-scroll {
     margin: 0;
     padding-top: 80px;
