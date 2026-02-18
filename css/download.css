@@ -27,7 +27,7 @@ body {
 .back-link {
     color: inherit;
 
-    &:hover {
+    &:hover::before {
         text-decoration: none;
     }
 }
@@ -35,7 +35,7 @@ body {
 .main-container {
     margin: 0 auto;
 
-    width: 28dvw;
+    width: clamp(450px, 28dvw, 480px);
     height: 100dvh;
 
     justify-items: center;
@@ -96,5 +96,22 @@ body {
     &:hover {
         text-decoration: none;
         background: var(--download-bg-hover);
+    }
+}
+
+@supports (corner-shape: squircle) {
+    .content {
+        border-radius: 72px;
+        corner-shape: squircle;
+    }
+    .download-link {
+        border-radius: 24px;
+        corner-shape: squircle;
+    }
+}
+
+@media (width <= 900px) {
+    .main-container {
+        width: 90dvw;
     }
 }

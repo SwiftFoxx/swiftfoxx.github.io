@@ -1,0 +1,8 @@
+<link rel="stylesheet" href="/css/embedded.css">
+
+{% assign vidlink = include.link %}
+{% assign title = include.title %}
+
+<div class="video-container">
+    <iframe src="{{ vidlink }}" title="{{ title }}" frameborder="0"></iframe>
+</div>
